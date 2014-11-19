@@ -1,0 +1,50 @@
+
+
+
+Stages of processing:
+Feed the input in
+	iterate through input, triggering necessary rules at each step
+	Should yield a tree, by finding the rule triggered at the last step and backtracking
+		there will be several candidates for final rule
+			take the one with the highest probability of being right
+			disregard all that don't contain the whole input?
+			keep the others for later analysis
+	Allow correction of tree result, which back-propagates changes through the network
+
+
+Each grammar rule is a weighted sum of rules that had to be triggered on the previous character and the literal rules triggered on the current character.
+
+Expressing regular grammars in our grammar type:
+
+compound rules such as "cat" := 'c' 'a' 't'
+The rule is broken into multiple rule parts:
+at the c, the cat0 rule is triggered
+the rule cat1 is triggered by the 'a' rule and the cat0 rule 
+the rule cat2 (finished cat rule) is triggered by the 't' rule and the cat1 rule
+
+ORing
+multiple weights, any of which is powerful enough to trigger the theorem
+
+ANDing
+multiple weights, all of which are needed to trigger the theorem
+
+negation:
+example 1: r:= (a...z -b)
+all positive weights from a through z to r, except for a total negative weight from b to r
+
+optional:
+example 1: r := a b?
+(a b) a implies m1, m1 and b imply r
+and
+(a) a implies r
+
+transitive closure:
+example 1: r := a b+
+a implies m1, m1 and b imply r
+m1 and b imply m2, m2 and b imply r
+
+reflexive transitive closure:
+example 1: r := a b*
+a implies r
+a implies m1, m1 and b imply r
+m1 and b imply m2, m2 and b imply r

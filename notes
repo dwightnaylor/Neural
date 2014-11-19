@@ -1,0 +1,44 @@
+3-bit adder 0.3rate
+	bit 1 remains neutral
+
+3-bit adder 3hidden 0.3rate
+	learned once by luck?
+	bit 1,2 neutral-low on p1,3,7
+
+3-bit adder 4hidden n-rate
+	learned
+		occasionally doesn't learn, or take huge num of cycles.
+		0.1:~20k
+		0.3:~9k
+		0.5:~4k
+		0.75:~3k
+		1:~2k
+		2:~1k
+		3:~500, many huge times
+
+3-bit adder 5hidden n-rate
+	learned
+		0.1:~15k
+		0.3:~4k
+		0.5:~2.5k
+		0.75:~1.5k
+		1:~1.5k
+		2:~1k
+		3:~500
+		5:~400
+		6:~500 (more spikes)
+		10:~90k
+
+3-bit adder 10hidden n-rate
+	learned
+		0.1:~5.5k
+		0.3:~1.5k
+		0.5:~1k
+		1:~500
+		2:~300
+		3:~200
+		5:~100 (starts to fail)
+
+XOR:
+2-2-1 network fails when input is given in order { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 }, but succeeds when given in { 0, 1 }, { 1, 0 }, { 0, 0 },{ 1, 1 }
+http://stackoverflow.com/questions/8101925/effects-of-randomizing-the-order-of-inputs-to-a-neural-network
