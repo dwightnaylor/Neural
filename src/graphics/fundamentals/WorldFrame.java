@@ -214,9 +214,9 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		WorldFrame frame = new WorldFrame(400, 400);
 		// Rectangle3D r = new Rectangle3D(frame.getWorld(), 0, 0, 400, 100);
 		// r.rotate(30, 0);
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				for (int k = 0; k < 3; k++) {
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 6; j++) {
+				for (int k = 0; k < 6; k++) {
 					new Rectangle3D(frame.getWorld(), 30 * i - 60, 30 * j - 60, 100 + k * 30, 20);
 				}
 			}

@@ -53,21 +53,25 @@ public class Camera extends RayModel {
 		int xd = x2 - x1;
 		int yd = y2 - y1;
 		if (x1 < 0) {
-			y1 += -xd / x1 * yd;
+			y1 -= (double) x1 * yd / xd;
 			x1 = 0;
 		}
+		if (x2 < 0) {
+			y2 -= (double) x2 * yd / xd;
+			x2 = 0;
+		}
 		if (y1 < 0) {
-			x1 += -yd / y1 * xd;
+			x1 -= (double) y1 * xd / yd;
 			y1 = 0;
 		}
-//		if (x2 >= getFieldWidth()) {
-//			y2 -= xd / (x2 - (getFieldWidth() - 1)) * yd;
-//			x2 = getFieldWidth() - 1;
-//		}
-//		if (y2 >= getFieldHeight()) {
-//			x2 -= yd / (y2 - (getFieldHeight() - 1)) * xd;
-//			y2 = getFieldHeight() - 1;
-//		}
+		if (y2 < 0) {
+			x2 -= (double) y2 * xd / yd;
+			y2 = 0;
+		}
+		if (x1 >= getFieldWidth()) {
+			y1 -= (double) (x1 - getFieldWidth() + 1) * yd / xd;
+			x1 = getFieldWidth() - 1;
+		}
 		int w = x2 - x1;
 		int h = y2 - y1;
 		int dx1 = 0, dy1 = 0, dx2 = 0, dy2 = 0;
@@ -101,7 +105,7 @@ public class Camera extends RayModel {
 		int numerator = longest >> 1;
 		double dz = (z2 - z1) / longest;
 		for (int i = 0; i <= longest; i++) {
-			for (int a = -3; a <= 3; a++) {
+			for (int a = -1; a <= 1; a++) {
 				paintPoint(x1 + a, y1, z1);
 				paintPoint(x1 - a, y1, z1);
 				paintPoint(x1, y1 + a, z1);
