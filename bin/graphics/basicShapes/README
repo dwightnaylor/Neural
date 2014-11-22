@@ -1,0 +1,14 @@
+All the basic shapes in this folder should be immutable.
+
+The methods within are roughly organized as such:
+Constructors
+Book-keeping
+Properties
+Transforms
+Graphics
+Other
+
+Each one of these sections is marked in-code with a comment similar to:
+	// **********Graphics**********
+	
+Any new methods should fit within one of these categories, especially Properties, which includes pretty much all getters.

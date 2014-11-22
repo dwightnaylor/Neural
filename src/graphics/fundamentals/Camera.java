@@ -120,6 +120,8 @@ public class Camera extends RayModel {
 		}
 		int longest = Math.abs(w);
 		int shortest = Math.abs(h);
+		boolean xm = longest > shortest;
+		int diff = (int)(Math.max(Math.sin(), arg1));
 		if (longest <= shortest) {
 			longest = Math.abs(h);
 			shortest = Math.abs(w);
@@ -136,7 +138,9 @@ public class Camera extends RayModel {
 			if (x1 >= getFieldWidth() || y1 >= getFieldHeight() || x1 < 0 || y1 < 0) {
 				return;
 			}
-			paintPoint(x1, y1, z1);
+			if (xm) {
+				paintPoint(x1, y1, z1);
+			}
 			z1 += dz;
 			numerator += shortest;
 			if (numerator >= longest) {
