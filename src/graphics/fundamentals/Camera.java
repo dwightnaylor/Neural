@@ -39,16 +39,76 @@ public class Camera extends RayModel {
 			return;
 		}
 		zraster[x][y] = z;
-		int r = (int) (z / 3000.0 * 256);
+		int r = (int) (z / 100.0 * 256);
 		if (r > 255) {
 			r = 255;
 		}
-		// Color colorToUse = new Color(r, r, r);
+		if (r < 0) {
+			r = 0;
+		}
+		 Color colorToUse = new Color(r, r, r);
 		// Color colorToUse = Color.black;
-		Color colorToUse = screenGraphics.getColor();
+//		Color colorToUse = screenGraphics.getColor();
 		screen.setRGB(x, y, colorToUse.getRGB());
 	}
-
+	
+	public void fillTriangleForCameraPoints (Point3D p1c, Point3D p2c, Point3D p3c)
+	{
+	    	
+		Point3D p1d = p1c.getDirectDrawPoint(this);
+		Point3D p2d = p2c.getDirectDrawPoint(this);
+		Point3D p3d = p3c.getDirectDrawPoint(this);
+		
+		paintTriangle(p1d, p2d, p3d);
+	}
+	public void paintTriangle(Point3D p1c, Point3D p2c, Point3D p3c)
+	{
+		double minX = p1c.x;
+		double minY = p1c.y;
+		double maxX = p1c.x;
+		double maxY = p1c.y;
+		if (p2c.x < minX)
+			minX = p2c.x;
+		if (p2c.y < minY)
+			minY = p2c.y;
+		if (p2c.x > maxX)
+			maxX = p2c.x;
+		if (p2c.y > maxY)
+			maxY = p2c.y;
+		if (p3c.x < minX)
+			minX = p3c.x;
+		if (p3c.y < minY)
+			minY = p3c.y;
+		if (p3c.x > maxX)
+			maxX = p3c.x;
+		if (p3c.y > maxY)
+			maxY = p3c.y; //Best code ever
+		
+		if (maxX < 0) {
+			maxX = 0;
+		}
+		if (maxY < 0) {
+			maxY = 0;
+		}
+		if (minX >= getFieldWidth()) {
+			minX = getFieldWidth() - 1;
+		}
+		if (minY >= getFieldHeight()) {
+			minY = getFieldHeight() - 1;
+		}
+		
+		for (int i = (int)minX-1; i < maxX+1; i++)
+		{
+			for (int j = (int)minY-1; j < maxY+1; j++)
+			{
+			    if (!Math3D.pointIsInTriangle(i,j,p1c,p2c,p3c))
+				continue;
+			    paintPoint(i,j,Math3D.zVal(i,j,p1c,p2c,p3c));
+			    
+			}
+		}
+	}
+	
 	public void paintLineForCameraPoints(Point3D p1c, Point3D p2c) {
 		if (p1c.z > 0 || p2c.z > 0) {
 			if (p2c.z <= 0) {
@@ -56,9 +116,10 @@ public class Camera extends RayModel {
 			} else if (p1c.z <= 0) {
 				p1c = p2c.getPointPartwayTo(p1c, (p2c.z - 0.01) / (p1c.z - p2c.z));
 			}
-			Point p1d = p1c.getDirectDrawPoint(this);
-			Point p2d = p2c.getDirectDrawPoint(this);
-			paintLine(p1d.x, p1d.y, p1c.z, p2d.x, p2d.y, p2c.z, 2);
+
+			Point3D p1d = p1c.getDirectDrawPoint(this);
+			Point3D p2d = p2c.getDirectDrawPoint(this);
+			paintLine((int)p1d.x, (int)p1d.y, p1c.z, (int)p2d.x, (int)p2d.y, p2c.z, 2);
 		}
 	}
 

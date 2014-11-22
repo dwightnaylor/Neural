@@ -105,12 +105,12 @@ public class Point3D {
 
 	// **********Graphics**********
 
-	public final Point getDrawPoint(Camera c) {
+	public final Point3D getDrawPoint(Camera c) {
 		return getCameraPoint(c).getDirectDrawPoint(c);
 	}
 
-	public final Point getDirectDrawPoint(Camera c) {
-		return new Point((int) (c.getDrawXFor(this) + 0.5), (int) (c.getDrawYFor(this) + 0.5));
+	public final Point3D getDirectDrawPoint(Camera c) {
+		return new Point3D((int) (c.getDrawXFor(this) + 0.5), (int) (c.getDrawYFor(this) + 0.5), z);
 	}
 
 	public final Point3D getCameraPoint(Camera camera) {
@@ -119,7 +119,7 @@ public class Point3D {
 
 	public void draw(Camera c) {
 		Point3D cameraPoint = getCameraPoint(c);
-		Point drawPoint = cameraPoint.getDirectDrawPoint(c);
-		c.paintPoint(drawPoint.x, drawPoint.y, cameraPoint.z);
+		Point3D drawPoint = cameraPoint.getDirectDrawPoint(c);
+		c.paintPoint((int)drawPoint.x, (int)drawPoint.y, cameraPoint.z);
 	}
 }
