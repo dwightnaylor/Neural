@@ -16,7 +16,6 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 
 import javax.swing.JFrame;
 
@@ -69,6 +68,7 @@ public class PointSpacer extends WorldFrame {
 			}
 		});
 		getCamera().setLocation(getCamera().getTransform().x, getCamera().getTransform().y, -1000);
+		moveSpeed = 100;
 	}
 
 	@Override
@@ -100,18 +100,19 @@ public class PointSpacer extends WorldFrame {
 		}
 
 		if (started) {
-			if (Math.random() < 0.9) {
-				if (ties.size() > 0) {
-					Iterator<Point> iterator = ties.iterator();
-					int j = (int) (Math.random() * (ties.size() - 1));
-					for (int i = 0; i < j; i++) {
-						iterator.next();
-					}
-					Point next = iterator.next();
-					untie(next.x, next.y);
-				}
-			}
-			tie((int) (Math.random() * points.length), (int) (Math.random() * points.length));
+			// if (Math.random() < 0.9) {
+			// if (ties.size() > 0) {
+			// Iterator<Point> iterator = ties.iterator();
+			// int j = (int) (Math.random() * (ties.size() - 1));
+			// for (int i = 0; i < j; i++) {
+			// iterator.next();
+			// }
+			// Point next = iterator.next();
+			// untie(next.x, next.y);
+			// }
+			// }
+			// tie((int) (Math.random() * points.length), (int) (Math.random() *
+			// points.length));
 
 			for (int i = 0; i < points.length; i++) {
 				for (int j = 0; j < points.length; j++) {
@@ -159,16 +160,16 @@ public class PointSpacer extends WorldFrame {
 		// makeTwistExample();
 		// makeCubes(8, 1, false);
 		// makeCubes(4, 4, true);
-		// makeMultipleDodecahedra(20, 1);
-		// tieLine(100);
-		// tieLines(100, 2);
+//		makeMultipleDodecahedra(20, 1);
+//		 tieLine(100);
+		 tieLines(100, 8);
 		// tieRandomly(200, 0.0075);
 		// tieRandomly(400, 0.01);
 		// tieRandomly(6, 1);
 		// tieRandomClusters(400, 20, 0.25, true);
 		// tieRandomClusters(400, 2, 0.025, true);
 		// tieRing(500);
-		makeSquareGrid(20);
+		// makeSquareGrid(20);
 		if (velocities == null) {
 			velocities = new Point3D[points.length];
 			for (int i = 0; i < points.length; i++) {

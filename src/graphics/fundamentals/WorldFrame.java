@@ -27,7 +27,7 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 	private Point lastMouseDrag;
 	public boolean[] keyPressBuffer = new boolean[1024];
 	private long minFrameTime = 20;
-	private int moveSpeed = 5;
+	protected int moveSpeed = 5;
 
 	public WorldFrame(int width, int height) {
 		setWorld(new World3D());

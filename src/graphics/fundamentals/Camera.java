@@ -58,11 +58,11 @@ public class Camera extends RayModel {
 			}
 			Point p1d = p1c.getDirectDrawPoint(this);
 			Point p2d = p2c.getDirectDrawPoint(this);
-			paintLine(p1d.x, p1d.y, p1c.z, p2d.x, p2d.y, p2c.z);
+			paintLine(p1d.x, p1d.y, p1c.z, p2d.x, p2d.y, p2c.z, 2);
 		}
 	}
 
-	public void paintLine(int x1, int y1, double z1, int x2, int y2, double z2) {
+	public void paintLine(int x1, int y1, double z1, int x2, int y2, double z2, double width) {
 		if (x1 < 0 && x2 < 0 || x1 >= getFieldWidth() && x2 >= getFieldWidth() || y1 < 0 && y2 < 0 || y1 >= getFieldHeight() && y2 >= getFieldHeight()) {
 			return;
 		}
@@ -133,16 +133,10 @@ public class Camera extends RayModel {
 		int numerator = longest >> 1;
 		double dz = (z2 - z1) / longest;
 		for (int i = 0; i <= longest; i++) {
-			// FIXME: Doesn't catch some things it should and catches some
-			// things it shouldn't
 			if (x1 >= getFieldWidth() || y1 >= getFieldHeight() || x1 < 0 || y1 < 0) {
 				return;
 			}
-			for (int a = -1; a <= 1; a++) {
-				for (int b = -1; b <= 1; b++) {
-					paintPoint(x1 + a, y1 + b, z1);
-				}
-			}
+			paintPoint(x1, y1, z1);
 			z1 += dz;
 			numerator += shortest;
 			if (numerator >= longest) {
