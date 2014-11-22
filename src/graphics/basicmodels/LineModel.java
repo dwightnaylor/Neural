@@ -1,14 +1,22 @@
 package graphics.basicmodels;
 
-import graphics.basicShapes.Point3D;
-import graphics.basicShapes.Polygon3D;
+import graphics.fundamentals.Camera;
 import graphics.fundamentals.World3D;
 
 public class LineModel extends Model {
 
-	public LineModel(World3D w, Point3D one, Point3D two) {
+	private Model a;
+	private Model b;
+
+	public LineModel(World3D w, Model a, Model b) {
 		super(w);
-		addPolygon((new Polygon3D(one, two)));
+		this.a = a;
+		this.b = b;
 	}
 
+	@Override
+	public void draw(Camera c) {
+		super.draw(c);
+		c.paintLineForCameraPoints(a.getTransform().getCameraPoint(c), b.getTransform().getCameraPoint(c));
+	}
 }

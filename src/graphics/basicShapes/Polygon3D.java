@@ -48,21 +48,7 @@ public class Polygon3D {
 			cameraPoints[i] = points.get(i).getCameraPoint(camera);
 		}
 		for (int i = 0; i < points.size(); i++) {
-			Point3D p1c = cameraPoints[(i) % points.size()];
-			Point3D p2c = cameraPoints[(i + 1) % points.size()];
-			if (p1c.z > 0 || p2c.z > 0) {
-				if (p2c.z <= 0) {
-					p2c = p1c.getPointPartwayTo(p2c, (p1c.z - 0.01) / (p2c.z - p1c.z));
-				} else if (p1c.z <= 0) {
-					p1c = p2c.getPointPartwayTo(p1c, (p2c.z - 0.01) / (p1c.z - p2c.z));
-				}
-				Point p1d = p1c.getDirectDrawPoint(camera);
-				Point p2d = p2c.getDirectDrawPoint(camera);
-				// TODO: Fix
-				// camera.screenGraphics.setColor(Color.black);
-				camera.paintLine(p1d.x, p1d.y, p1c.z, p2d.x, p2d.y, p2c.z);
-//				camera.screenGraphics.drawLine(p1d.x, p1d.y, p2d.x, p2d.y);
-			}
+			camera.paintLineForCameraPoints(cameraPoints[(i) % points.size()], cameraPoints[(i + 1) % points.size()]);
 		}
 	}
 

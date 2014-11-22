@@ -21,7 +21,6 @@ import javax.swing.JRootPane;
 import javax.swing.WindowConstants;
 
 public class WorldFrame extends JFrame implements MouseMotionListener, MouseListener, KeyListener, ComponentListener, MouseWheelListener {
-	private static final long serialVersionUID = 1L;
 	private World3D world;
 	private Camera camera;
 	private Point lastMousePress;
@@ -37,15 +36,21 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		setSize(width, height);
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setContentPane(new JRootPane() {
+			long frameTime = -1;
+			int frameNumber = 1;
+
 			public void paint(Graphics g) {
 				long frameStartTime = System.currentTimeMillis();
 				getWorld().paint(g, getCamera());
 				g.setColor(Color.black);
 				g.drawString("WASD keys move forward,left,back, and right. Shift moves down and Spacebar moves up. Click and drag to look around.", 3, 12);
 				g.drawString("Move speed is currently " + getMoveSpeed() + ". Scroll to change move speed. (Up is faster, down is slower)", 3, 27);
+				g.drawString("Frametime is about " + (frameTime / frameNumber++), 3, 42);
 				processKeyPresses();
+				doPainting(g);
+				frameTime += System.currentTimeMillis() - frameStartTime;
 				try {
-					Thread.sleep(Math.max(0, getMinFrameTime() - (System.currentTimeMillis() - frameStartTime)));
+					Thread.sleep(Math.max(0, getMinFrameTime() - frameTime));
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -56,27 +61,31 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		addKeyListener(this);
 		addComponentListener(this);
 		addMouseWheelListener(this);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void doPainting(Graphics g) {
+		// no-op
 	}
 
 	protected void processKeyPresses() {
-		int move = 5;
 		if (this.keyPressBuffer[KeyEvent.VK_W]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth()).getPointAtDistance(move), camera.getZenith(), camera.getAzimuth()));
+			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth()).getPointAtDistance(moveSpeed), camera.getZenith(), camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_S]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 180).getPointAtDistance(move), camera.getZenith(), camera.getAzimuth()));
+			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 180).getPointAtDistance(moveSpeed), camera.getZenith(), camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_A]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 90).getPointAtDistance(-move), camera.getZenith(), camera.getAzimuth()));
+			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 90).getPointAtDistance(-moveSpeed), camera.getZenith(), camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_D]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() - 90).getPointAtDistance(-move), camera.getZenith(), camera.getAzimuth()));
+			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() - 90).getPointAtDistance(-moveSpeed), camera.getZenith(), camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_SPACE]) {
-			camera.translate(0, move, 0);
+			camera.translate(0, moveSpeed, 0);
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_SHIFT]) {
-			camera.translate(0, -move, 0);
+			camera.translate(0, -moveSpeed, 0);
 		}
 		// double rot = 0.01;
 		// if (this.keyPressBuffer[37]) {

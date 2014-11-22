@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class World3D {
 	public ArrayList<Model> models = new ArrayList<Model>();
-	private ArrayList<Color> colors = new ArrayList<Color>();
+	public ArrayList<Color> colors = new ArrayList<Color>();
 
 	public void paint(Graphics g, Camera c) {
 		c.resetScreen();

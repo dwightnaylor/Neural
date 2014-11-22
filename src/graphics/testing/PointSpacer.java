@@ -4,127 +4,51 @@ import graphics.basicShapes.Point3D;
 import graphics.basicmodels.LineModel;
 import graphics.basicmodels.Model;
 import graphics.basicmodels.PointModel;
-import graphics.fundamentals.Camera;
-import graphics.fundamentals.World3D;
-import helpers.DelayHelper;
+import graphics.fundamentals.WorldFrame;
 import helpers.MathHelper;
 
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
 
 import javax.swing.JFrame;
-import javax.swing.JRootPane;
 
 @SuppressWarnings("serial")
-public class PointSpacer extends JFrame implements KeyListener, MouseMotionListener, MouseListener, MouseWheelListener {
+public class PointSpacer extends WorldFrame {
 
 	private static boolean started = false;
 
 	public static void main(String[] args) {
-		new PointSpacer(400, 400, 20).continueRepainting();
+		PointSpacer frame = new PointSpacer(400, 400, 20);
+		frame.setVisible(true);
+		while (true) {
+			frame.repaint();
+		}
 	}
-
-	World3D w;
-	private Camera camera;
 
 	public static final int DIFF = 40;
 	HashSet<Point> ties = new HashSet<Point>();
+	Hashtable<Point, Model> tieModels = new Hashtable<Point, Model>();
 	Model[] points;
 	Point3D[] velocities;
 	double desiredDistance = 10;
 	double velocityMultiplier = 100;
-	private int move = 100;
 
-	Point3D selectedPoint;
+	PointModel selectedPoint;
 	private int selectedIndex;
 	ArrayList<Double> velocitySums = new ArrayList<Double>();
 	private JFrame graphFrame;
 
 	public PointSpacer(final int width, final int height, final int displayDelay) {
-		this.w = new World3D();
-		this.setSize(width + DIFF, height + DIFF);
-		camera = new Camera(w, 0, -100, 0, 0, 0, width, height);
+		super(width, height);
 		makeThings();
-		JRootPane customPane = new JRootPane() {
-			public void paint(Graphics g) {
-				// if (!started) {
-				// try {
-				// Thread.sleep(10000);
-				// } catch (InterruptedException e) {
-				// e.printStackTrace();
-				// }
-				// started = true;
-				// }
-				long st = System.currentTimeMillis();
-				BufferedImage buffer = (BufferedImage) createImage(getWidth(), getHeight());
-				Graphics2D bg = (Graphics2D) buffer.getGraphics();
-				adjustCamera();
-				w.paint(bg, camera);
-
-				bg.setColor(Color.black);
-				bg.drawString("WASD keys move forward,left,back, and right. Shift moves down and Spacebar moves up. Click and drag to look around.", 20, 10);
-				bg.drawString("Move speed is currently " + move + ". Scroll to change move speed. (Up is faster, down is slower)", 20, 25);
-
-				if (selectedPoint != null) {
-					Point3D cameraPoint = selectedPoint.getCameraPoint(camera);
-					if (cameraPoint.z > 0) {
-						Point drawPoint = cameraPoint.getDirectDrawPoint(camera);
-						double sx = MathHelper.round(selectedPoint.x, 3);
-						double sy = MathHelper.round(selectedPoint.y, 3);
-						double sz = MathHelper.round(selectedPoint.z, 3);
-						bg.setColor(Color.red);
-						bg.drawString(selectedIndex + ":[" + sx + "," + sy + "," + sz + "]", drawPoint.x, drawPoint.y);
-					}
-				}
-
-				g.drawImage(buffer, 0, 0, null);
-				if (started) {
-					for (int i = 0; i < points.length; i++) {
-						for (int j = 0; j < points.length; j++) {
-							if (i != j) {
-								Point3D subtract = points[i].getLocation().subtractFrom(points[j].getLocation());
-								subtract.scale(-Math.min(10, 5000 * velocityMultiplier / Math.pow(points[i].getLocation().distance(points[j].getLocation()), 2)));
-								velocities[i] = velocities[i].addTo(new Point3D(subtract.x, subtract.y, subtract.z));
-							}
-						}
-					}
-					for (Point tie : ties) {
-						Point3D subtract = points[tie.x].getLocation().subtractFrom(points[tie.y].getLocation());
-						double dist = points[tie.x].getLocation().distance(points[tie.y].getLocation());
-						subtract.scale(Math.min(100, (0.001) * velocityMultiplier * dist));
-						if (dist < desiredDistance) {
-							subtract.scale(-1);
-						}
-						velocities[tie.x] = velocities[tie.x].addTo(new Point3D(subtract.x, subtract.y, subtract.z));
-					}
-					double velocitySum = 0;
-					for (int i = 0; i < points.length; i++) {
-						points[i].setLocation(points[i].getLocation().addTo(velocities[i]));
-						velocities[i] = velocities[i].multiply(0.9);
-						velocitySum += velocities[i].getMagnitude();
-					}
-					velocitySums.add(velocitySum);
-					graphFrame.repaint();
-				}
-				checkForKeyPresses();
-				System.out.println(System.currentTimeMillis() - st);
-				DelayHelper.delayFor(displayDelay - (System.currentTimeMillis() - st));
-			}
-		};
-		setContentPane(customPane);
 		graphFrame = new JFrame();
 		graphFrame.setLocation(getX() + getWidth(), 0);
 		graphFrame.setSize(500, 500);
@@ -144,13 +68,78 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 				}
 			}
 		});
-		graphFrame.setVisible(true);
-		getComponent(0).addMouseMotionListener(this);
-		getComponent(0).addMouseListener(this);
-		getComponent(0).addMouseWheelListener(this);
-		addKeyListener(this);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+		getCamera().setLocation(getCamera().getTransform().x, getCamera().getTransform().y, -1000);
+	}
+
+	@Override
+	public void setVisible(boolean b) {
+		graphFrame.setVisible(b);
+		super.setVisible(b);
+	}
+
+	protected void processKeyPresses() {
+		if (keyPressBuffer[KeyEvent.VK_ENTER]) {
+			started = true;
+		}
+		super.processKeyPresses();
+	}
+
+	@Override
+	public void doPainting(Graphics g) {
+
+		if (selectedPoint != null) {
+			Point3D cameraPoint = selectedPoint.getLocation().getCameraPoint(getCamera());
+			if (cameraPoint.z > 0) {
+				Point drawPoint = cameraPoint.getDirectDrawPoint(getCamera());
+				double sx = MathHelper.round(selectedPoint.getLocation().x, 3);
+				double sy = MathHelper.round(selectedPoint.getLocation().y, 3);
+				double sz = MathHelper.round(selectedPoint.getLocation().z, 3);
+				g.setColor(Color.red);
+				g.drawString(selectedIndex + ":[" + sx + "," + sy + "," + sz + "]", drawPoint.x, drawPoint.y);
+			}
+		}
+
+		if (started) {
+			if (Math.random() < 0.9) {
+				if (ties.size() > 0) {
+					Iterator<Point> iterator = ties.iterator();
+					int j = (int) (Math.random() * (ties.size() - 1));
+					for (int i = 0; i < j; i++) {
+						iterator.next();
+					}
+					Point next = iterator.next();
+					untie(next.x, next.y);
+				}
+			}
+			tie((int) (Math.random() * points.length), (int) (Math.random() * points.length));
+
+			for (int i = 0; i < points.length; i++) {
+				for (int j = 0; j < points.length; j++) {
+					if (i != j) {
+						Point3D subtract = points[i].getLocation().subtractFrom(points[j].getLocation());
+						subtract = subtract.scale(-Math.min(10, 5000 * velocityMultiplier / Math.pow(points[i].getLocation().distance(points[j].getLocation()), 2)));
+						velocities[i] = velocities[i].addTo(new Point3D(subtract.x, subtract.y, subtract.z));
+					}
+				}
+			}
+			for (Point tie : ties) {
+				Point3D subtract = points[tie.x].getLocation().subtractFrom(points[tie.y].getLocation());
+				double dist = points[tie.x].getLocation().distance(points[tie.y].getLocation());
+				subtract = subtract.scale(Math.min(100, (0.001) * velocityMultiplier * dist));
+				if (dist < desiredDistance) {
+					subtract.scale(-1);
+				}
+				velocities[tie.x] = velocities[tie.x].addTo(new Point3D(subtract.x, subtract.y, subtract.z));
+			}
+			double velocitySum = 0;
+			for (int i = 0; i < points.length; i++) {
+				points[i].setLocation(points[i].getLocation().addTo(velocities[i]));
+				velocities[i] = velocities[i].multiply(0.9);
+				velocitySum += velocities[i].getMagnitude();
+			}
+			velocitySums.add(velocitySum);
+			graphFrame.repaint();
+		}
 	}
 
 	private int randLocValue() {
@@ -165,18 +154,21 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 		// }
 		// tied = new double[points.length][points.length];
 
+		// makePoints(100);
 		// makeSpinExample();
 		// makeTwistExample();
-		makeCubes(8, 1, false);
+		// makeCubes(8, 1, false);
 		// makeCubes(4, 4, true);
 		// makeMultipleDodecahedra(20, 1);
 		// tieLine(100);
 		// tieLines(100, 2);
 		// tieRandomly(200, 0.0075);
+		// tieRandomly(400, 0.01);
 		// tieRandomly(6, 1);
 		// tieRandomClusters(400, 20, 0.25, true);
+		// tieRandomClusters(400, 2, 0.025, true);
 		// tieRing(500);
-		// makeSquareGrid(20);
+		makeSquareGrid(20);
 		if (velocities == null) {
 			velocities = new Point3D[points.length];
 			for (int i = 0; i < points.length; i++) {
@@ -187,8 +179,8 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 
 	void makeSpinExample() {
 		points = new Model[2];
-		points[0] = new PointModel(w, 50, 0, 0);
-		points[1] = new PointModel(w, -50, 0, 0);
+		points[0] = new PointModel(getWorld(), 50, 0, 0);
+		points[1] = new PointModel(getWorld(), -50, 0, 0);
 		velocities = new Point3D[2];
 		velocities[0] = new Point3D(0, 50, 0);
 		velocities[1] = new Point3D(0, -50, 0);
@@ -250,7 +242,7 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 	private void makePoints(int numPoints) {
 		points = new Model[numPoints];
 		for (int i = 0; i < points.length; i++) {
-			points[i] = new PointModel(w, randLocValue(), randLocValue(), randLocValue());
+			points[i] = new PointModel(getWorld(), randLocValue(), randLocValue(), randLocValue());
 		}
 		ties = new HashSet<Point>();
 	}
@@ -275,7 +267,7 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 			points = new Model[cubeVolume * numCubes];
 		}
 		for (int i = 0; i < points.length; i++) {
-			points[i] = new PointModel(w, randLocValue(), randLocValue(), randLocValue());
+			points[i] = new PointModel(getWorld(), randLocValue(), randLocValue(), randLocValue());
 		}
 		ties = new HashSet<Point>();
 		for (int i = 0; i < numCubes; i++) {
@@ -390,27 +382,30 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 	}
 
 	private void tie(int i, int j) {
+		Point p1 = new Point(i, j);
+		if (i == j || ties.contains(p1)) {
+			return;
+		}
 		// tied[i][j] = desiredDistance;
 		// tied[j][i] = desiredDistance;
-		ties.add(new Point(i, j));
-		ties.add(new Point(j, i));
-		new LineModel(w, points[i].getLocation(), points[j].getLocation());
+		ties.add(p1);
+		Point p1r = new Point(j, i);
+		ties.add(p1r);
+		LineModel model = new LineModel(getWorld(), points[i], points[j]);
+		tieModels.put(p1, model);
+		tieModels.put(p1r, model);
 	}
 
-	private void adjustCamera() {
-		// FIXME: Will be removed soon
-	}
-
-	public void checkForKeyPresses() {
-	}
-
-	public void keyPressed(KeyEvent e) {
-	}
-
-	public void keyReleased(KeyEvent e) {
-	}
-
-	public void keyTyped(KeyEvent e) {
+	void untie(int i, int j) {
+		Point p1 = new Point(i, j);
+		Point p1r = new Point(j, i);
+		ties.remove(p1);
+		ties.remove(p1r);
+		Model remove = tieModels.remove(p1);
+		tieModels.remove(p1r);
+		int modelIndex = getWorld().models.indexOf(remove);
+		getWorld().models.remove(modelIndex);
+		getWorld().colors.remove(modelIndex);
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -418,9 +413,9 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 			double minDist = Double.MAX_VALUE;
 			int minIndex = -1;
 			for (int i = 0; i < points.length; i++) {
-				Point3D cameraPoint = points[i].getLocation().getCameraPoint(camera);
+				Point3D cameraPoint = points[i].getLocation().getCameraPoint(getCamera());
 				if (cameraPoint.z > 0) {
-					Point drawPoint = cameraPoint.getDirectDrawPoint(camera);
+					Point drawPoint = cameraPoint.getDirectDrawPoint(getCamera());
 					double dist = Math.sqrt(Math.pow(drawPoint.x - e.getX(), 2) + Math.pow(drawPoint.y - e.getY(), 2));
 					if (dist < minDist) {
 						minIndex = i;
@@ -429,57 +424,10 @@ public class PointSpacer extends JFrame implements KeyListener, MouseMotionListe
 				}
 			}
 			selectedIndex = minIndex;
-			selectedPoint = points[minIndex].getLocation();
+			selectedPoint = (PointModel) points[minIndex];
 		}
 		if (e.getButton() == 3) {
 			selectedPoint = null;
-		}
-
-		// for (int i = 0; i < points.length; i++) {
-		// if (i != minIndex) {
-		// Point3D subtract = points[i].subtractFrom(points[minIndex]);
-		// double dist = points[i].getDistanceTo(points[minIndex]);
-		// double magnitude = 1000000 * velocityMultiplier / Math.pow(dist, 2);
-		// subtract.scale(-magnitude);
-		// velocities[i].translate(subtract.x, subtract.y,
-		// subtract.z);
-		// }
-		// }
-	}
-
-	public void mouseEntered(MouseEvent e) {
-	}
-
-	public void mouseExited(MouseEvent e) {
-	}
-
-	public void mousePressed(MouseEvent e) {
-	}
-
-	public void mouseReleased(MouseEvent arg0) {
-	}
-
-	public void mouseDragged(MouseEvent e) {
-	}
-
-	public void mouseMoved(MouseEvent e) {
-	}
-
-	public void continueRepainting() {
-		new Thread() {
-			public void run() {
-				while (true) {
-					repaint();
-				}
-			}
-		}.start();
-	}
-
-	@Override
-	public void mouseWheelMoved(MouseWheelEvent e) {
-		move -= e.getUnitsToScroll();
-		if (move < 0) {
-			move = 0;
 		}
 	}
 }
