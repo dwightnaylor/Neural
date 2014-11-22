@@ -49,12 +49,10 @@ public class Ray3D extends Point3D {
 		this(point1.x, point1.y, point1.z, zenith, azimuth);
 	}
 
-	// FIXME: Convert all angles for 3d stuff to radians (marked "// degrees")
 	/**
 	 * Constructs a ray, with the specified azimuth and zenith.
 	 */
 	public Ray3D(double x, double y, double z, double zenith, double azimuth) {
-		// degrees
 		this(x, y, z, calculateDx(zenith, azimuth), calculateDy(zenith, azimuth), calculateDz(zenith, azimuth));
 	}
 
@@ -88,14 +86,12 @@ public class Ray3D extends Point3D {
 		return new Point3D(dx, dy, dz);
 	}
 
-	// degrees
 	public double getZenith() {
-		return Math.toDegrees(Math.atan2(dy, Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2))));
+		return Math.atan2(dy, Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)));
 	}
 
-	// degrees
 	public double getAzimuth() {
-		return Math.toDegrees(Math.atan2(dx, dz));
+		return Math.atan2(dx, dz);
 	}
 
 	public Ray3D getXZPlaneLine() {
@@ -121,14 +117,14 @@ public class Ray3D extends Point3D {
 	// **********Static**********
 
 	public static double calculateDx(double zenith, double azimuth) {
-		return Math.cos(Math.toRadians(zenith)) * Math.sin(Math.toRadians(azimuth));
+		return Math.cos(zenith) * Math.sin(azimuth);
 	}
 
 	public static double calculateDz(double zenith, double azimuth) {
-		return Math.cos(Math.toRadians(zenith)) * Math.cos(Math.toRadians(azimuth));
+		return Math.cos(zenith) * Math.cos(azimuth);
 	}
 
 	public static double calculateDy(double zenith, double azimuth) {
-		return Math.sin(Math.toRadians(zenith));
+		return Math.sin(zenith);
 	}
 }

@@ -70,16 +70,16 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 
 	protected void processKeyPresses() {
 		if (this.keyPressBuffer[KeyEvent.VK_W]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth()).getPointAtDistance(moveSpeed), camera.getZenith(), camera.getAzimuth()));
+		    	camera.translate(moveSpeed*Math.sin(camera.getAzimuth()), 0, moveSpeed*Math.cos(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_S]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 180).getPointAtDistance(moveSpeed), camera.getZenith(), camera.getAzimuth()));
+		    	camera.translate(-moveSpeed*Math.sin(camera.getAzimuth()), 0, -moveSpeed*Math.cos(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_A]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() + 90).getPointAtDistance(-moveSpeed), camera.getZenith(), camera.getAzimuth()));
+		    	camera.translate(-moveSpeed*Math.cos(camera.getAzimuth()), 0, -moveSpeed*Math.sin(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_D]) {
-			camera.setTransform(new Ray3D(new Ray3D(camera.getTransform(), 0, camera.getAzimuth() - 90).getPointAtDistance(-moveSpeed), camera.getZenith(), camera.getAzimuth()));
+		    	camera.translate(moveSpeed*Math.cos(camera.getAzimuth()), 0, moveSpeed*Math.sin(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_SPACE]) {
 			camera.translate(0, moveSpeed, 0);
@@ -126,16 +126,17 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		if (this.lastMouseDrag == null) {
 			this.lastMouseDrag = this.lastMousePress;
 		}
-		double deltaZenith = -((double) (e.getY() - this.lastMouseDrag.y)) / 2;
-		double zenithLimit = 89.9;
+		double deltaZenith = -((double) (e.getY() - this.lastMouseDrag.y)) / 150;
+		double zenithLimit = Math.PI/2.1;
 		if (camera.getZenith() + deltaZenith > zenithLimit) {
 			deltaZenith = zenithLimit - camera.getZenith();
 		}
 		if (camera.getZenith() + deltaZenith < -zenithLimit) {
 			deltaZenith = -zenithLimit - camera.getZenith();
 		}
-		camera.rotate(deltaZenith, (double) (e.getX() - this.lastMouseDrag.x) / 2);
+		camera.rotate(deltaZenith, (double) (e.getX() - this.lastMouseDrag.x) / 150);
 		this.lastMouseDrag = new Point(e.getX(), e.getY());
+		System.out.println(camera.getZenith() + ", " + deltaZenith);
 	}
 
 	@Override
