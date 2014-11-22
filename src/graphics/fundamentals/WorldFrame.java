@@ -2,6 +2,7 @@ package graphics.fundamentals;
 
 import graphics.basicShapes.Ray3D;
 import graphics.basicmodels.Rectangle3D;
+import graphics.basicmodels.TriangleModel;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,8 +27,8 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 	private Point lastMousePress;
 	private Point lastMouseDrag;
 	public boolean[] keyPressBuffer = new boolean[1024];
-	private long minFrameTime = 33;
-	protected int moveSpeed = 5;
+	private long minFrameTime = 20;
+	private int moveSpeed = 1;
 
 	public WorldFrame(int width, int height) {
 		setWorld(new World3D());
@@ -223,13 +224,7 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		WorldFrame frame = new WorldFrame(400, 400);
 		// Rectangle3D r = new Rectangle3D(frame.getWorld(), 0, 0, 400, 100);
 		// r.rotate(30, 0);
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 6; k++) {
-					new Rectangle3D(frame.getWorld(), 30 * i - 60, 30 * j - 60, 100 + k * 30, 20);
-				}
-			}
-		}
+		new Rectangle3D(frame.getWorld(), 15,  15, 100 , 20);
 		frame.setVisible(true);
 		while (true) {
 			frame.repaint();

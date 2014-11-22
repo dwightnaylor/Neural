@@ -16,36 +16,40 @@ import java.util.List;
  * @author Dwight Naylor
  * @since 11/13/14
  */
-public class Polygon3D {
+public class Triangle3D {
 
 	private final List<Point3D> points;
 	
-	//TODO: Make this only accept triangles. Any polygon can be made of triangles. Also makes math easy.
 	
 	// **********Constructors**********
 
-	public Polygon3D(Point3D... pointArray) {
+	public Triangle3D(Point3D p1, Point3D p2, Point3D p3 ) {
+	    	Point3D[] pointArray = {p1, p2, p3};
 		points = Collections.unmodifiableList(Arrays.asList(pointArray));
 	}
 
-	public Polygon3D(List<Point3D> pointList) {
+	public Triangle3D(List<Point3D> pointList) {
+	    	if (pointList.size()!=3)
+	    	{
+	    	    System.err.println("wrongPointSize");
+	    	}
 		points = Collections.unmodifiableList(pointList);
 	}
 
 	// **********Transforms**********
 
-	public Polygon3D transform(Ray3D transform) {
+	public Triangle3D transform(Ray3D transform) {
 		ArrayList<Point3D> newPoints = new ArrayList<Point3D>();
 		for (Point3D point : points) {
 			newPoints.add(Math3D.getPointInNewCoordinates(Ray3D.DEFAULT_RAY.rotate(-transform.getZenith(), -transform.getAzimuth()), point).addTo(transform));
 		}
-		return new Polygon3D(newPoints);
+		return new Triangle3D(newPoints);
 	}
 
 	// **********Graphics**********
 
 	public void draw(Camera camera) {
-	    if (points.size() == 3){ //Fills triangles
+	    if (points.size() == 3){
 		fill(camera);
 		return;
 	    }
@@ -59,7 +63,6 @@ public class Polygon3D {
 		}
 	}
 
-	// This only works with triangles.
 	public void fill(Camera c) {
 		if (shouldFill(c)) {
 			Point3D[] cPoints = new Point3D[points.size()];
@@ -67,7 +70,6 @@ public class Polygon3D {
 			    cPoints[i] = points.get(i).getCameraPoint(c);
 			}
 			c.fillTriangleForCameraPoints(cPoints[0], cPoints[1], cPoints[2]);
-			// g.fill(new Polygon(px, py, px.length));TODO:fix this
 		}
 	}
 
@@ -79,4 +81,5 @@ public class Polygon3D {
 		}
 		return true;
 	}
+	
 }
