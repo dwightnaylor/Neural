@@ -76,10 +76,10 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		    	camera.translate(-moveSpeed*Math.sin(camera.getAzimuth()), 0, -moveSpeed*Math.cos(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_A]) {
-		    	camera.translate(-moveSpeed*Math.cos(camera.getAzimuth()), 0, -moveSpeed*Math.sin(camera.getAzimuth()));
+		    	camera.translate(-moveSpeed*Math.cos(camera.getAzimuth()), 0, moveSpeed*Math.sin(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_D]) {
-		    	camera.translate(moveSpeed*Math.cos(camera.getAzimuth()), 0, moveSpeed*Math.sin(camera.getAzimuth()));
+		    	camera.translate(moveSpeed*Math.cos(camera.getAzimuth()), 0, -moveSpeed*Math.sin(camera.getAzimuth()));
 		}
 		if (this.keyPressBuffer[KeyEvent.VK_SPACE]) {
 			camera.translate(0, moveSpeed, 0);
@@ -136,7 +136,6 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		}
 		camera.rotate(deltaZenith, (double) (e.getX() - this.lastMouseDrag.x) / 150);
 		this.lastMouseDrag = new Point(e.getX(), e.getY());
-		System.out.println(camera.getZenith() + ", " + deltaZenith);
 	}
 
 	@Override
@@ -224,10 +223,10 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		WorldFrame frame = new WorldFrame(400, 400);
 		// Rectangle3D r = new Rectangle3D(frame.getWorld(), 0, 0, 400, 100);
 		// r.rotate(30, 0);
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 6; j++) {
-				for (int k = 0; k < 6; k++) {
-					new Rectangle3D(frame.getWorld(), 30 * i - 60, 30 * j - 60, 100 + k * 30, 20);
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				for (int k = 0; k < 2; k++) {
+					new Rectangle3D(frame.getWorld(), 30 * i - 15, 30 * j - 15, 100 + k * 30, 20);
 				}
 			}
 		}
