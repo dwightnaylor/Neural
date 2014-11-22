@@ -121,7 +121,6 @@ public class Camera extends RayModel {
 		int longest = Math.abs(w);
 		int shortest = Math.abs(h);
 		boolean xm = longest > shortest;
-		int diff = (int)(Math.max(Math.sin(), arg1));
 		if (longest <= shortest) {
 			longest = Math.abs(h);
 			shortest = Math.abs(w);
