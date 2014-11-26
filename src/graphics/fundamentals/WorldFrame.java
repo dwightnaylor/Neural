@@ -2,7 +2,6 @@ package graphics.fundamentals;
 
 import graphics.basicShapes.Ray3D;
 import graphics.basicmodels.Rectangle3D;
-import graphics.basicmodels.TriangleModel;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -28,7 +27,7 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 	private Point lastMouseDrag;
 	public boolean[] keyPressBuffer = new boolean[1024];
 	private long minFrameTime = 20;
-	private int moveSpeed = 1;
+	protected int moveSpeed = 1;
 
 	public WorldFrame(int width, int height) {
 		setWorld(new World3D());
@@ -38,7 +37,6 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setContentPane(new JRootPane() {
 			long frameTime = -1;
-			int frameNumber = 1;
 
 			public void paint(Graphics g) {
 				long frameStartTime = System.currentTimeMillis();
@@ -46,10 +44,10 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 				g.setColor(Color.black);
 				g.drawString("WASD keys move forward,left,back, and right. Shift moves down and Spacebar moves up. Click and drag to look around.", 3, 12);
 				g.drawString("Move speed is currently " + getMoveSpeed() + ". Scroll to change move speed. (Up is faster, down is slower)", 3, 27);
-				g.drawString("Frametime is about " + (frameTime / frameNumber++), 3, 42);
+				g.drawString("Frametime is about " + frameTime , 3, 42);
 				processKeyPresses();
 				doPainting(g);
-				frameTime += System.currentTimeMillis() - frameStartTime;
+				frameTime = System.currentTimeMillis() - frameStartTime;
 				try {
 					Thread.sleep(Math.max(0, getMinFrameTime() - frameTime));
 				} catch (InterruptedException e) {
@@ -88,22 +86,6 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		if (this.keyPressBuffer[KeyEvent.VK_SHIFT]) {
 			camera.translate(0, -moveSpeed, 0);
 		}
-		// double rot = 0.01;
-		// if (this.keyPressBuffer[37]) {
-		// this.spin += rot;
-		// }
-		// if (this.keyPressBuffer[39]) {
-		// this.spin -= rot;
-		// }
-		// if (this.keyPressBuffer[38]) {
-		// this.tilt -= rot;
-		// }
-		// if (this.keyPressBuffer[40]) {
-		// this.tilt += rot;
-		// }
-		// if (this.player != null) {
-		// adjustCamera();
-		// }
 	}
 
 	public World3D getWorld() {

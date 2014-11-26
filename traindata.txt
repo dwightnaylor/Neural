@@ -104,3 +104,87 @@
 
 +4:Which country has won the most world cups
 +4:When was RPI founded
+
++2:lets listen to all of the lights
++3:whats it like outside
++4:who is bill gates
++4:what is valve corporation
++1:whats the square root of 4
++3:whats the weather in montreal right now
++3:is it cold out
++1:who is the president of the united states
++6:show me what the mac pro looks like
++6:can you get me pictures of cookies
++7:when is the east shuttle going to be at the union
++1:how many calories are in a donut
++1:what is 32 times 2
++2:can you play everlong
++5:show me restaurants near rpi
++5:are there any malls near here
++3:is it going to be sunny tomorrow
++1:can you tell me who the ceo of exxonmobil is
++7:where will the east shuttle be next
++1:what is the volume of a soda can
++1:what planes are above me right now
++3:is it warm in seattle today
++3:will it snow tomorrow
++3:will it rain on thursday
++3:is it raining
++3:should i wear a jacket this weekend
++3:should i wear a raincoat
++2:play some music for me
++7:when will the shuttle be here
++1:when is tim cook's birthday
++1:what is the current phase of the moon
++1:can you tell me the current phase of the moon
++1:where was shirley ann jackson born
++3:is it nice out today
++5:wheres the nearest pizza place
++1:graph x squared plus 2
++2:listen to drake
++4:who killed franz ferdinand
++3:is it a good day to go to the beach
++1:whats the population of the united states
++1:whos the 44th president of the us	
++1:what day was it 3 weeks ago
++1:what time will it be in 42 minutes
++6:look up pictures of brownies
++5:is there a park near here
++5:wheres the nearest park
++5:are there any places to eat here
++5:what restaraunts are near me
++2:i want to listen to runaway
++2:play heartbeat
++7:when will the shuttle be at west hall
++7:whens the shuttle getting here
++7:is the shuttle coming soon
++1:what does weather mean
++1:what does university mean
++1:define internet
++1:can you tell me what audio means
++1:can you tell me what audio is
++1:whats the average human life span
++6:get photos of rpi
++5:get me directions to the closest library
++3:is it cloudy right now
++3:whats tomorrows forecast
++3:how humid is it
++3:how warm is it
++3:will it be frigid tonight
++5:where is mexico
++5:where is the capital of japan
++4:what is samsung
++4:what is sony
++4:who is jon stewart
++1:what is one plus one
++4:what is the oneplus one
++1:convert 3 feet to inches
++1:whats 12 gallons in quarts
++1:how big is the united states
++1:how populous is japan
++1:whats the gdp of china
++1:how old is north korea
++7:are the shuttles still running
++4:what is snapple
++1:how old is donald glover
++5:is there a coffee shop around here

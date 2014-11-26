@@ -3,8 +3,6 @@ package graphics.basicShapes;
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.Math3D;
 
-import java.awt.Point;
-
 /**
  * The immutable Point3D class.
  * 
@@ -120,6 +118,6 @@ public class Point3D {
 	public void draw(Camera c) {
 		Point3D cameraPoint = getCameraPoint(c);
 		Point3D drawPoint = cameraPoint.getDirectDrawPoint(c);
-		c.paintPoint((int)drawPoint.x, (int)drawPoint.y, cameraPoint.z);
+		c.paintPoint((int) drawPoint.x, (int) drawPoint.y, cameraPoint.z);
 	}
 }

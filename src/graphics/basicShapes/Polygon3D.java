@@ -3,7 +3,6 @@ package graphics.basicShapes;
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.Math3D;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,9 +18,10 @@ import java.util.List;
 public class Polygon3D {
 
 	private final List<Point3D> points;
-	
-	//TODO: Make this only accept triangles. Any polygon can be made of triangles. Also makes math easy.
-	
+
+	// TODO: Make this only accept triangles. Any polygon can be made of
+	// triangles. Also makes math easy.
+
 	// **********Constructors**********
 
 	public Polygon3D(Point3D... pointArray) {
@@ -45,11 +45,11 @@ public class Polygon3D {
 	// **********Graphics**********
 
 	public void draw(Camera camera) {
-	    if (points.size() == 3){ //Fills triangles
-		fill(camera);
-		return;
-	    }
-	    
+		if (points.size() == 3) { // Fills triangles
+			fill(camera);
+			return;
+		}
+
 		Point3D[] cameraPoints = new Point3D[points.size()];
 		for (int i = 0; i < cameraPoints.length; i++) {
 			cameraPoints[i] = points.get(i).getCameraPoint(camera);
@@ -64,7 +64,7 @@ public class Polygon3D {
 		if (shouldFill(c)) {
 			Point3D[] cPoints = new Point3D[points.size()];
 			for (int i = 0; i < cPoints.length; i++) {
-			    cPoints[i] = points.get(i).getCameraPoint(c);
+				cPoints[i] = points.get(i).getCameraPoint(c);
 			}
 			c.fillTriangleForCameraPoints(cPoints[0], cPoints[1], cPoints[2]);
 			// g.fill(new Polygon(px, py, px.length));TODO:fix this

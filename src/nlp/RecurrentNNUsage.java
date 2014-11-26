@@ -4,16 +4,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.Map.Entry;
 
 import neural.RecurringNNSave;
 
 public class RecurrentNNUsage {
 	private static final String UNKNOWN = "UNKNOWN";
+	private static Hashtable<String, Integer> indices;
+	private static RecurringNNSave network;
 
 	public static HashSet<String> getTokens(String[][] inputs) {
 		HashSet<String> ret = new HashSet<String>();
@@ -94,8 +97,8 @@ public class RecurrentNNUsage {
 		return new ArrayList[] { problems, answers };
 	}
 
-	public static void main(String[] args) {
-		ArrayList<Object>[] parse = parseProblems("traindata.txt");
+	static void parseProblemsFrom(String file) {
+		ArrayList<Object>[] parse = parseProblems(file);
 
 		String[][] inputs = new String[parse[0].size()][];
 		parse[0].toArray(inputs);
@@ -103,31 +106,86 @@ public class RecurrentNNUsage {
 		int numOutputs = -1;
 		for (int i = 0; i < parse[1].size(); i++) {
 			answers[i] = (Integer) parse[1].get(i);
-			numOutputs = Math.max(numOutputs, answers[i] + 2);
+			numOutputs = Math.max(numOutputs, answers[i] + 1);
 		}
-		Hashtable<String, Integer> indices = getIndices(getTokens(inputs));
+		indices = getIndices(getTokens(inputs));
 		indices.put(UNKNOWN, numOutputs - 1);
+		writeIndicesToFile("indices");
 
 		int numInputs = getTokens(inputs).size();
 
 		double[][][] problems = getProblems(inputs, indices);
 		double[][] solutions = getSolutions(numOutputs, answers);
 
-		RecurringNNSave n = new RecurringNNSave(numInputs, numOutputs, 10);
-		n.setGammaTruncation(0.1);
-		n.setVerbosity(2);
+		network = new RecurringNNSave(numInputs, numOutputs, 10);
+		network.setGammaTruncation(0.3);
+		network.setVerbosity(2);
 
-		n.trainTillPerfection(problems, solutions);
+		network.trainTillPerfection(problems, solutions);
+	}
 
-		Scanner s = new Scanner(System.in);
-		while (s.hasNext()) {
-			String input = s.nextLine();
-			double[][] test = convertToProblem(input.split(" "), indices);
-			n.calculateOutput(test);
-			for (int i = 0; i < n.getNumOutputs(); i++) {
-				System.out.println(i + ":" + n.outputNeurons[i].getAdjustedGamma(0));
+	public static void readIndicesFromFile(String fileString) {
+		indices = new Hashtable<String, Integer>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(new File(fileString)));
+			String line;
+			while ((line = br.readLine()) != null) {
+				indices.put(line.substring(0, line.lastIndexOf(':')), Integer.parseInt(line.substring(line.lastIndexOf(':') + 1)));
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void writeIndicesToFile(String fileString) {
+		File file = new File(fileString);
+		try {
+			FileWriter writer = new FileWriter(file);
+			for (Entry<String, Integer> entry : indices.entrySet()) {
+				writer.append(entry.getKey() + ":" + entry.getValue() + "\n");
+			}
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String[] args) {
+		// String file = "traindata.txt";
+		// parseProblemsFrom(file);
+		//
+		// network.writeToFile("network");
+
+		network = RecurringNNSave.parseFromFile(args[0]);
+		readIndicesFromFile(args[1]);
+
+		String input = args[2];
+		double[][] test = convertToProblem(input.split(" "), indices);
+		network.calculateOutput(test);
+		int maxIndex = 0;
+		double val = 0;
+		for (int i = 0; i < network.getNumOutputs(); i++) {
+			if (val < network.outputNeurons[i].getAdjustedGamma(0)) {
+				maxIndex = i;
+				val = network.outputNeurons[i].getAdjustedGamma(0);
 			}
 		}
-		s.close();
+		System.out.println(maxIndex);
+
+		// Scanner s = new Scanner(System.in);
+		// while (s.hasNext()) {
+		// String input = s.nextLine();
+		// double[][] test = convertToProblem(input.split(" "), indices);
+		// network.calculateOutput(test);
+		// for (int i = 0; i < network.getNumOutputs(); i++) {
+		// System.out.println(i + ":" +
+		// network.outputNeurons[i].getAdjustedGamma(0));
+		// }
+		// }
+		// s.close();
 	}
 }

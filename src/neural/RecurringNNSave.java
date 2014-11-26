@@ -2,6 +2,12 @@ package neural;
 
 import helpers.DelayHelper;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class RecurringNNSave extends NeuralNetwork<double[][], double[]> {
@@ -22,6 +28,58 @@ public class RecurringNNSave extends NeuralNetwork<double[][], double[]> {
 		outputNeurons = new Neuron[getNumOutputs()];
 		for (int i = 0; i < outputNeurons.length; i++) {
 			outputNeurons[i] = new Neuron(getLayerSize());
+		}
+	}
+
+	public static RecurringNNSave parseFromFile(String file) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(new File(file)));
+			int numInputs = Integer.parseInt(br.readLine());
+			int numOutputs = Integer.parseInt(br.readLine());
+			int numAbstractNeurons = Integer.parseInt(br.readLine());
+			RecurringNNSave ret = new RecurringNNSave(numInputs, numOutputs, numAbstractNeurons);
+			for (int i = 0; i < ret.hiddenLayer.length; i++) {
+				ret.hiddenLayer[i] = Neuron.parse(br.readLine());
+			}
+			for (int i = 0; i < ret.getNumOutputs(); i++) {
+				ret.outputNeurons[i] = Neuron.parse(br.readLine());
+			}
+			br.close();
+			return ret;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public String getCompactNotation() {
+		StringBuffer ret = new StringBuffer();
+		ret.append(getNumInputs() + "\n");
+		ret.append(getNumOutputs() + "\n");
+		ret.append(numAbstractNeurons + "\n");
+		for (int i = 0; i < numAbstractNeurons; i++) {
+			ret.append(hiddenLayer[i].getCompactRepresentation() + "\n");
+		}
+		for (int i = 0; i < getNumOutputs(); i++) {
+			ret.append(outputNeurons[i].getCompactRepresentation() + "\n");
+		}
+		return ret.toString();
+	}
+
+	public void writeToFile(String fileString) {
+		try {
+			File file = new File(fileString);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			FileWriter fw = new FileWriter(file);
+			fw.write(getCompactNotation());
+			fw.flush();
+			fw.close();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 

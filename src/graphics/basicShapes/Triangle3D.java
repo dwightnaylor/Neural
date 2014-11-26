@@ -3,7 +3,6 @@ package graphics.basicShapes;
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.Math3D;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,20 +18,18 @@ import java.util.List;
 public class Triangle3D {
 
 	private final List<Point3D> points;
-	
-	
+
 	// **********Constructors**********
 
-	public Triangle3D(Point3D p1, Point3D p2, Point3D p3 ) {
-	    	Point3D[] pointArray = {p1, p2, p3};
+	public Triangle3D(Point3D p1, Point3D p2, Point3D p3) {
+		Point3D[] pointArray = { p1, p2, p3 };
 		points = Collections.unmodifiableList(Arrays.asList(pointArray));
 	}
 
 	public Triangle3D(List<Point3D> pointList) {
-	    	if (pointList.size()!=3)
-	    	{
-	    	    System.err.println("wrongPointSize");
-	    	}
+		if (pointList.size() != 3) {
+			System.err.println("wrongPointSize");
+		}
 		points = Collections.unmodifiableList(pointList);
 	}
 
@@ -49,11 +46,11 @@ public class Triangle3D {
 	// **********Graphics**********
 
 	public void draw(Camera camera) {
-	    if (points.size() == 3){
-		fill(camera);
-		return;
-	    }
-	    
+		if (points.size() == 3) {
+			fill(camera);
+			return;
+		}
+
 		Point3D[] cameraPoints = new Point3D[points.size()];
 		for (int i = 0; i < cameraPoints.length; i++) {
 			cameraPoints[i] = points.get(i).getCameraPoint(camera);
@@ -67,7 +64,7 @@ public class Triangle3D {
 		if (shouldFill(c)) {
 			Point3D[] cPoints = new Point3D[points.size()];
 			for (int i = 0; i < cPoints.length; i++) {
-			    cPoints[i] = points.get(i).getCameraPoint(c);
+				cPoints[i] = points.get(i).getCameraPoint(c);
 			}
 			c.fillTriangleForCameraPoints(cPoints[0], cPoints[1], cPoints[2]);
 		}
@@ -81,5 +78,5 @@ public class Triangle3D {
 		}
 		return true;
 	}
-	
+
 }

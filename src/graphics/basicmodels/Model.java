@@ -8,7 +8,7 @@ import graphics.fundamentals.World3D;
 
 import java.util.ArrayList;
 
-public class Model {
+public class Model implements Comparable<Model> {
 
 	public ArrayList<Polygon3D> polygons;
 	private Ray3D transform;
@@ -79,6 +79,11 @@ public class Model {
 		for (int i = 0; i < polygons.size(); i++) {
 			polygons.get(i).transform(transform).draw(c);
 		}
+	}
+
+	@Override
+	public int compareTo(Model o) {
+		return ((Integer) hashCode()).compareTo(o.hashCode());
 	}
 
 }

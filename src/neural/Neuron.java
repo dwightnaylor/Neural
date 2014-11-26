@@ -8,11 +8,30 @@ public class Neuron {
 	double error;
 
 	public Neuron(int inputs) {
-		biasWeight =NeuralUtils.getRandomNeuronWeight();
+		biasWeight = NeuralUtils.getRandomNeuronWeight();
 		weights = new double[inputs];
 		for (int i = 0; i < weights.length; i++) {
 			weights[i] = NeuralUtils.getRandomNeuronWeight();
 		}
+	}
+
+	public String getCompactRepresentation() {
+		String ret = "";
+		for (int i = 0; i < weights.length; i++) {
+			ret += weights[i] + ":";
+		}
+		ret += biasWeight;
+		return ret;
+	}
+
+	public static Neuron parse(String string) {
+		String[] split = string.split(":");
+		Neuron ret = new Neuron(split.length - 1);
+		for (int i = 0; i < split.length - 1; i++) {
+			ret.weights[i] = Double.parseDouble(split[i]);
+		}
+		ret.biasWeight = Double.parseDouble(split[split.length - 1]);
+		return ret;
 	}
 
 	double delta() {
