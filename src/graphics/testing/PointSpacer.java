@@ -32,7 +32,7 @@ public class PointSpacer extends WorldFrame {
 	private static boolean started = false;
 
 	public static void main(String[] args) {
-		PointSpacer frame = new PointSpacer(400, 400, 20);
+		PointSpacer frame = new PointSpacer(1000, 800, 20);
 		frame.setVisible(true);
 		while (true) {
 			frame.repaint();
@@ -74,7 +74,6 @@ public class PointSpacer extends WorldFrame {
 			}
 		});
 		getCamera().setLocation(getCamera().getTransform().x, getCamera().getTransform().y, -1000);
-		moveSpeed = 100;
 	}
 
 	@Override
@@ -174,36 +173,60 @@ public class PointSpacer extends WorldFrame {
 	}
 
 	private void makeThings() {
-		// points = new Model[512];
-		// for (int i = 0; i < getWorld().models.size(); i++) {
-		// getWorld().models.get(i) = new PointModel(w, (int) (Math.random() *
-		// 1000), (int)
-		// (Math.random() * 1000), (int) (Math.random() * 1000));
-		// }
-		// tied = new
-		// double[getWorld().models.size()][getWorld().models.size()];
+		moveSpeed = 30;
 
-		// makePoints(100);
-		// makeSpinExample();
-		// makeTwistExample();
+		// Platonic solids
+		// tieRandomly(4, 1);
+		// makeCubes(2, 1, false);
+		// makeOctahedron();
+		// makeMultipleDodecahedra(1, 0);
+		// makeIcosahedron();
+		// Basic Geometric arrangements
+		// tieLine(50);
+		// tieRing(100);
+		// makeSquareGrid(20);
 		// makeCubes(8, 1, false);
+
+		// makeTwistExample();
+
+		// Randomly-generated
+		// tieLines(100, 2);
+		// tieRandomly(200, 0.0075);
+		// tieRandomly(100, 0.01);
+		// tieRandomly(400, 0.003);
+
+		// Clusters
 		// makeCubes(4, 4, true);
 		// makeMultipleDodecahedra(20, 1);
-		// tieLine(100);
-//		tieLines(100, 2);
-		// tieRandomly(200, 0.0075);
-		// tieRandomly(400, 0.01);
-		// tieRandomly(6, 1);
-		// tieRandomClusters(400, 20, 0.25, true);
-		// tieRandomClusters(400, 2, 0.025, true);
-		// tieRing(500);
-		// makeSquareGrid(20);
+		// tieRandomClusters(400, 20, 0.2, true);
+		// tieRandomClusters(300, 2, 0.02, true);
+
 		// makeWikiCrawler("http://en.wikipedia.org/wiki/Pollarding");
-		// doFancyTying("rpidata/CSDepartment");
-		// doFancyTying("rpidata/BioDepartment");
-		// doFancyTying("rpidata/PhysicsDepartment");
-		// doFancyTying("rpidata/AllDepartments");
-		doOrderedTying("text/pledgeOfAllegiance");
+
+		// Real data
+		// doPairwiseTying("rpidata/BioDepartment");
+		// doPairwiseTying("rpidata/PhysicsDepartment");
+		// doPairwiseTying("rpidata/CSDepartment");
+		// doPairwiseTying("caltechdata/CSDepartment");
+		doPairwiseTying("allSchoolsData/csDepartments");
+		// doOrderedTying("text/pledgeOfAllegiance");
+		// doOrderedTying("text/gettysburgAddress");
+	}
+
+	void makeOctahedron() {
+		makePoints(6);
+		tie(0, 1);
+		tie(0, 2);
+		tie(0, 3);
+		tie(0, 4);
+		tie(5, 1);
+		tie(5, 2);
+		tie(5, 3);
+		tie(5, 4);
+		tie(1, 2);
+		tie(2, 3);
+		tie(3, 4);
+		tie(4, 1);
 	}
 
 	void doOrderedTying(String file) {
@@ -356,6 +379,18 @@ public class PointSpacer extends WorldFrame {
 				tie(j * 20 + i + 10, j * 20 + i + 15);
 				tie(j * 20 + i + 15, j * 20 + (i + 1) % 5 + 15);
 			}
+		}
+	}
+
+	void makeIcosahedron() {
+		makePoints(12);
+		for (int i = 0; i < 5; i++) {
+			tie(0, i + 1);
+			tie(11, i + 6);
+			tie(i + 1, i + 6);
+			tie(i + 1, 6 + (i + 1) % 5);
+			tie(i + 1, 1 + (i + 1) % 5);
+			tie(i + 6, 6 + (i + 1) % 5);
 		}
 	}
 

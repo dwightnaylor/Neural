@@ -11,6 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
 public class ImageHelper {
+
 	public static BufferedImage loadImage(String file) {
 		BufferedImage img = null;
 		try {

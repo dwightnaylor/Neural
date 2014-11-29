@@ -40,10 +40,10 @@ public class Camera extends RayModel {
 		zraster[x][y] = z;
 
 		Color colorToUse = screenGraphics.getColor();
-		double scale = 1 / (z * zmult * 0.01 + 1);
-		double r = 255 - (colorToUse.getRed() + (255 - colorToUse.getRed()) * scale);
-		double g = 255 - (colorToUse.getGreen() + (255 - colorToUse.getGreen()) * scale);
-		double b = 255 - (colorToUse.getBlue() + (255 - colorToUse.getBlue()) * scale);
+		double scale = 1 / (z * zmult * 0.05 + 1);
+		double r = 200 - (colorToUse.getRed() + (200 - colorToUse.getRed()) * scale);
+		double g = 200 - (colorToUse.getGreen() + (200 - colorToUse.getGreen()) * scale);
+		double b = 200 - (colorToUse.getBlue() + (200 - colorToUse.getBlue()) * scale);
 		Color finalColor = new Color((int) r, (int) g, (int) b);
 		screen.setRGB(x, y, finalColor.getRGB());
 	}

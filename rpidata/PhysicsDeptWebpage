@@ -1,0 +1,379 @@
+
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1" />
+<title>RPI Physics, Applied Physics, &amp; Astronomy: Faculty</title>
+<link href="../physics.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="../jsp/jslib.js"></script>
+<script type="text/javascript"><!--
+var preloadFlag = false;
+function preloadImages() {
+if (document.images) {
+preloadImagesCmp000A0D5526();
+preloadFlag = true;
+}
+}
+
+// --></script>
+<script type="text/javascript"><!--
+function preloadImagesCmp000A0D5526() {
+if (document.images) {
+pre_physics_roll_02 = newImage('../graphic/physics_roll_02.gif');
+pre_physics_roll_03 = newImage('../graphic/physics_roll_03.gif');
+pre_physics_roll_04 = newImage('../graphic/physics_roll_04.gif');
+pre_physics_roll_05 = newImage('../graphic/physics_roll_05.gif');
+pre_physics_roll_06 = newImage('../graphic/physics_roll_06.gif');
+pre_physics_roll_07 = newImage('../graphic/physics_roll_07.gif');
+pre_physics_roll_08 = newImage('../graphic/physics_roll_08.gif');
+pre_physics_roll_09 = newImage('../graphic/physics_roll_09.gif');
+}
+}
+// --></script>
+<script type="text/javascript" src="../GeneratedItems/CSScriptLib.js"></script>
+<script type="text/javascript"><!--
+var preloadFlag = true;
+
+// --></script>
+		<csscriptdict import="import">
+			<script type="text/javascript" src="../GeneratedItems/CSScriptLib.js"></script>
+		</csscriptdict>
+		<csactiondict>
+			<script type="text/javascript"><!--
+var preloadFlag = true;
+
+// --></script>
+		</csactiondict>
+	</head>
+
+<body bgcolor="#112f49" link="black" vlink="#696969">
+<div align="center">
+<table class="small" width="740" border="0" cellspacing="0" cellpadding="8">
+<tr>
+<td align="center" valign="middle"><a class="rpi_nav" href="http://www.rpi.edu/index.html">Rensselaer Polytechnic Institute</a> <font color="white">|</font> <a class="rpi_nav" href="http://www.rpi.edu/about/index.html">About RPI</a> <font color="white">|</font> <a class="rpi_nav" href="http://www.rpi.edu/academics/index.html">Academics</a><font color="white"> | </font><a class="rpi_nav" href="http://www.rpi.edu/research/index.html">Research</a> <font color="white">|</font> <a class="rpi_nav" href="http://www.rpi.edu/student_life/index.html">Student Life</a> <font color="white">|</font> <a class="rpi_nav" href="http://www.rpi.edu/admission/index.html">Admissions</a> <font color="white">|</font> <a class="rpi_nav" href="http://news.rpi.edu/setup.do">News &amp; Information</a></td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><a title="Physics, Applied Physics, and Astronomy" href="../index.html"><img src="../graphic/physics_header_1_01.jpg" alt="Physics, Applied Physics, and Astronomy" height="57" width="740" border="0" /></a></td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="81"><a title="Department Home Page" onmouseover="changeImages('nav_1','../graphic/physics_roll_02.gif');return true" onmouseout="changeImages('nav_1','../graphic/physics_02.gif');return true" href="../index.html"><img id="nav_1" src="../graphic/physics_02.gif" alt="Home" name="nav_1" height="28" width="81" border="0"/></a></td>
+<td width="138"><a title="Undergraduate Programs" onmouseover="changeImages('nav_2','../graphic/physics_roll_03.gif');return true" onmouseout="changeImages('nav_2','../graphic/physics_03.gif');return true" href="../undergraduate/index.html"><img id="nav_2" src="../graphic/physics_03.gif" alt="Undergraduate" name="nav_2" height="28" width="138" border="0"/></a></td>
+<td width="92"><a title="Graduate Programs" onmouseover="changeImages('nav_3','../graphic/physics_roll_04.gif');return true" onmouseout="changeImages('nav_3','../graphic/physics_04.gif');return true" href="../graduate/index.html"><img id="nav_3" src="../graphic/physics_04.gif" alt="Graduate" name="nav_3" height="28" width="92" border="0"/></a></td>
+<td width="95"><a title="Department Research" onmouseover="changeImages('nav_4','../graphic/physics_roll_05.gif');return true" onmouseout="changeImages('nav_4','../graphic/physics_05.gif');return true" href="../research/index.html"><img id="nav_4" src="../graphic/physics_05.gif" alt="Research" name="nav_4" height="28" width="95" border="0"/></a></td>
+<td width="76"><a title="Department Faculty" onmouseover="changeImages('nav_5','../graphic/physics_roll_06.gif');return true" onmouseout="changeImages('nav_5','../graphic/physics_06.gif');return true" href="index.html"><img id="nav_5" src="../graphic/physics_06.gif" alt="Faculty" name="nav_5" height="28" width="76" border="0"/></a></td>
+<td width="90"><a title="Students" onmouseover="changeImages('nav_6','../graphic/physics_roll_07.gif');return true" onmouseout="changeImages('nav_6','../graphic/physics_07.gif');return true" href="../students/index.html"><img id="nav_6" src="../graphic/physics_07.gif" alt="Students" name="nav_6" height="28" width="90" border="0"/></a></td>
+<td width="90"><a title="Department Facilities" onmouseover="changeImages('nav_7','../graphic/physics_roll_08.gif');return true" onmouseout="changeImages('nav_7','../graphic/physics_08.gif');return true" href="../facilities/index.html"><img id="nav_7" src="../graphic/physics_08.gif" alt="Facilities" name="nav_7" height="28" width="90" border="0"/></a></td>
+<td width="78"><a title="Department News" onmouseover="changeImages('nav_8','../graphic/physics_roll_09.gif');return true" onmouseout="changeImages('nav_8','../graphic/physics_09.gif');return true" href="../news/index.html"><img id="nav_8" src="../graphic/physics_09.gif" alt="News" name="nav_8" height="28" width="78" border="0"/></a></td>
+</tr>
+</table>
+
+
+<table width="740" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td valign="top" bgcolor="#e2decc" width="180">
+<table class="content" width="180" border="0" cellspacing="0" cellpadding="12">
+<tr>
+<td><b><span class="topic">Faculty:</span></b>
+									<p><a href="accolades.html">Accolades</a></p>
+									<p><a href="searches.html">Searches</a></p>
+								</td>
+</tr>
+</table>
+<table class="content" width="180" border="0" cellspacing="0" cellpadding="12">
+<tr>
+<td valign="top"><b><span class="topic">Contact Us:</span></b>
+
+<p>Department of Physics, Applied Physics, and Astronomy<br/>
+
+ Rensselaer Polytechnic Institute<br/>
+
+ 110 Eighth Street, Troy, New York 12180-3590 USA<br/>
+
+ <br/>
+
+Telephone: <br/>
+
+(518) 276-6310<br/>
+
+ Fax: (518) 276-6680<br/>
+
+ E-mail: <a href="mailto:physics@rpi.edu">physics@rpi.edu</a></p>
+</td>
+</tr>
+</table>
+
+
+</td>
+<td valign="top" bgcolor="#f0eee5" width="560">
+<div align="center">
+<table class="content" width="558" border="0" cellspacing="0" cellpadding="12">
+<tr>
+<td><b><span class="title">Department Faculty</span></b>
+
+
+<p>Rensselaer&rsquo;s faculty members are a collaborative community working in an atmosphere of increasing interdisciplinarity. They take pride in their dedication to teaching &#151; demonstrating a commitment to excellence that always has been a hallmark of Rensselaer&rsquo;s teacher-scholars.</p>
+<p>All phone numbers are (518) 276 and the extension number.</p>
+</td>
+</tr>
+</table>
+<table class="content" width="540" border="0" cellspacing="2" cellpadding="3" align="center" bgcolor="white">
+<tr>
+<td colspan="3" align="left" valign="top" bgcolor="#e2decc" width="530"><b><span class="headline">Faculty</span></b></td>
+</tr>
+
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="http://faculty.rpi.edu/node/1214">Brown, Ethan</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Assistant Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6331</td>
+</tr>
+
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="http://faculty.rpi.edu/node/1185">Chakrapani, Vidhya</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Assistant Professor, primary appointment with the Department of Chemical and Biological Engineering</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 4402</td>
+</tr>
+
+
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/garcia.html">Garcia, Angel E.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Department Head; Professor; Senior Constellation Chaired Professor in Biocomputation and Bioinformatics</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 4206</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/giedt.html">Giedt, Joel</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Associate Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6455</td>
+</tr>
+								<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="http://www.rpi.edu/president/profile.html">Jackson, Shirley Ann</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">President; Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6212</td>
+</tr>
+								<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/korniss.html">Korniss, Gyorgy</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2555</td>
+</tr>
+								<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/lewis.html">Lewis, Kim</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Associate Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 3978</td>
+</tr>
+								<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/lin.html">Lin, Shawn-Yu</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor; Constellation Professor, Future Chips</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2978</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/lu_t.html">Lu, Toh-Ming</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">R.P. Baker Distinguished Professor of Physics</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2979</td>
+</tr>
+<tr>
+									<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/meunier.html">Meunier, Vincent</a> Ph.D.</td>
+									<td align="left" valign="top" bgcolor="#e2decc" width="262">Gail and Jeffrey L. Kodosky &rsquo;70 Constellation Professor of Physics, Information Technology, and Entrepreneurship</td>
+									<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6886</td>
+								</tr>
+
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/newberg.html">Newberg, Heidi Jo</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2652</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/persans.html">Persans, Peter D.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor; Department Associate Head</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2934</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/roberge.html">Roberge, Wayne G.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6454</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/schroeder.html">Schroeder, John</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 8408</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/shur.html">Shur, Michael S.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Patricia W. and C. Sheldon Roberts &rsquo;48 Professor of Solid State Electronics (primary appointment with ECSE)</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2201</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/stoler.html">Stoler, Paul</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 8388</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/terrones.html">Terrones, Humberto</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Rayleigh Endowed Chair; Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 2932</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/wang.html">Wang, Gwo-Ching</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Travelstead Institute Chair; Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 8387</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/washington.html">Washington, Morris A.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor of Practice</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 3064</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/wetzel.html">Wetzel, Christian M.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Wellfleet Career Development Constellation Professor, Future Chips; Professor of Physics</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 3755</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/whittet.html">Whittet, Douglas C.B.</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Professor; Director, New York Center for Astrobiology</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 8413</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/wilke.html">Wilke, Ingrid</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Associate Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6318</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/yamaguchi.html">Yamaguchi, Masashi</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Associate Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 3092</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/zhang-s.html">Zhang, Shengbai</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Gail and Jeffrey L. Kodosky &rsquo;70 Senior Constellation Professor of Physics, Information Technology, and Entrepreneurship</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 6127</td>
+</tr>
+</table>
+<table class="content" width="540" border="0" cellspacing="2" cellpadding="3" align="center" bgcolor="white">
+<tr>
+<td colspan="3" align="left" valign="top" bgcolor="#e2decc" width="530"><b><span class="headline">Research and Affiliated Faculty</span></b></td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/herse.html">Herce, Henry D.</a>  Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Research Assistant Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72">Ext. 4245</td>
+</tr>
+<tr>
+<td align="left" valign="top" bgcolor="#e2decc" width="180"><a href="profiles/sun.html">Sun, Yiyang</a> Ph.D.</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="262">Research Assistant Professor</td>
+<td align="left" valign="top" bgcolor="#e2decc" width="72"></td>
+</tr>
+</table>
+<br/>
+<table width="540" border="0" cellspacing="2" cellpadding="3" bgcolor="white">
+<tr>
+<td class="content" valign="top" bgcolor="#e2decc" width="261"><b><span class="topic">Research Appointments</span></b>
+<p>Research Associate<br/>
+											Ciolek, Glenn<br/>
+Shenoi, Rajeev<br/><br/>
+Visiting Scientist<br/>
+<a href="http://www.iitbbs.ac.in/profile.php/saroj-kumar-nayak/">Nayak, Saroj</a></p>
+
+										
+										<p><strong><span class="topic">Postdoctoral Research Associates</span></strong></p>
+<p>Carlin, Jeffrey<br/>
+    Chen, Liang<br/>
+Dash, Jatis<br/>Derszy, Noemi<br/>
+Kuang, Ping<br/>
+Levy, Cecilia</br>
+Liang, Liangbo<br/>
+
+Lu, Zonghuan<br/>
+Neale, Christopher<br/>
+Nicolai, Adrien<br/>
+Poteet, Charles<br/>
+Qian, Guoguang<br/>
+
+
+	West, Damien<br/>
+    Yang, Yunbo</p>
+									</td>
+<td class="content" valign="top" bgcolor="#e2decc" width="261">
+<b><span class="topic">Adjunct Faculty</span></b>
+<p>Dwyer, Scott<br/>
+Napolitano, James Ph.D.<br/>
+Newby, Matthew<br/>
+
+
+Simbeck, Adam</p>
+<p><b><span class="topic">Supervisor, Studio Classrooms</span>:</b><br/>
+ Dwyer, S. Ph.D., Ext. 8414</p>
+<p><strong><span class="topic">Coordinators of Public Observing:</span></strong><br/>
+Cassidy, J., Ext. 6310<br/>
+Morton, D., Ext. 6310<br/>
+</p>
+<p><span class="topic"><b>Emeritus Professors</b></span></p>
+<p>Adams, Gary S., Ph.D.<br/>
+
+Brown, E., Ph.D.<br/>
+
+Giaever, I., Ph.D.<br/>
+Hayes, Tim, Ph.D.<br/>
+Leung, C.M., Ph.D.<br/>
+Levinger, J., Ph.D.<br/>
+Medicus, H., Ph.D.<br/>
+Meltzer, A.S., Ph.D.<br/>
+Min, Kongki, Ph.D.<br/>
+Nettel, S.J., Ph.D.<br/>
+Salinger, G., Ph.D.<br/>
+Winhold, E.J., Ph.D.<br/>
+
+Yergin, P., Ph.D.</p>
+</td>
+</tr>
+</table>
+<br/>
+</div>
+</td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><img src="../graphic/spacer.gif" alt="*" height="12" width="20" border="0"/></td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="5" bgcolor="white">
+<tr>
+<td class="small" colspan="8" align="center" valign="middle" bgcolor="#e2decc"><a href="http://www.rpi.edu/">RPI Home</a> &gt; <a href="http://www.rpi.edu/academics/index.html">Academics &amp; Research</a> &gt; <a href="http://www.rpi.edu/dept/science/">School of Science</a> &gt; <b>Physics, Applied Physics, and Astronomy:</b></td>
+</tr>
+<tr>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc"><a href="../index.html">Home</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="96"><a href="../undergraduate/index.html">Undergraduate</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="84"><a href="../graduate/index.html">Graduate</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="84"><a href="../research/index.html">Research</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="84"><a href="index.html">Faculty</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="85"><a href="../facilities/index.html">Facilities</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc" width="84"><a href="../students/index.html">Students</a></td>
+<td class="small" align="center" valign="middle" bgcolor="#e2decc"><a href="../news/index.html">News</a></td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="0" bgcolor="#e2decc">
+<tr>
+<td><img src="../graphic/spacer.gif" alt="" height="5" width="20" border="0"/></td>
+</tr>
+</table>
+<table width="740" border="0" cellspacing="0" cellpadding="0" bgcolor="white">
+<tr>
+<td><img src="../graphic/spacer.gif" alt="*" height="2" width="20" border="0"/></td>
+</tr>
+</table>
+<table class="content" width="740" border="0" cellspacing="0" cellpadding="6" bgcolor="#f5f5f5">
+<tr>
+<td align="center" valign="middle" bgcolor="black" width="254"><img src="../graphic/rpilogo_wh.gif" alt="" height="47" width="254" border="0"/></td>
+<td align="center" valign="middle" bgcolor="black" width="20"><img src="../graphic/spacer.gif" alt="*" height="10" width="20" border="0"/></td>
+<td align="right" valign="bottom" bgcolor="black" width="430"><span class="small"><font color="white">&copy; 2005 Rensselaer Polytechnic Institute. All rights reserved.</font></span></td>
+</tr>
+</table>
+</div>
+</body>
+
+</html>

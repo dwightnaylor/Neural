@@ -1,0 +1,559 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<title>Faculty at Rensselaer Computer Science</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link rel="stylesheet" type="text/css" href="/templates/cs.css" />
+<script language="javascript" src="/templates/javascript.js"></script>
+
+</head>
+
+<body>
+
+<!-- TOP HTML START ======================================================== -->
+
+<div class="form">
+
+<table class="main" id="main" cellspacing="0" cellpadding="0">
+	<tr>
+		<td colspan="3">
+			<table class="globalnav" cellspacing="0" border="0">
+				<tr>
+					<td rowspan="2" valign="top">
+						<a href="http://www.cs.rpi.edu/"><img src="/images/logo_rpics.gif" width="199" height="48" alt="Rensselaer Computer Science"></a></td>
+					<td class="bluenav1">
+						<img src="/images/bullet_square.gif" width="6" height="6" alt="*"> <a href="http://www.cs.rpi.edu/news/news.html" class="bluenav">Recent Department News</a></td>
+					<td class="bluenav2">
+						<img src="/images/bullet_square.gif" width="6" height="6" alt="*"> <a href="http://www.cs.rpi.edu/news/events.html" class="bluenav">Upcoming events</a></td>
+					<td class="bluenav3">
+						<form method="GET" action="http://www.google.com/search" class="search">
+							<div>
+								<img src="/images/bullet_square.gif" width="6" height="6" alt="*"> Site search:
+								<input type="text" name="q" maxlength="255" value="" class="searchbox">
+								<input type="image" src="/images/search_arrow.gif" alt="Search" class="searcharrow">
+								<input type="hidden" name="sitesearch" value="cs.rpi.edu">
+							</div>
+						</form>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<table cellspacing="0" width="600">
+							<tr>
+								<td class="level2 width80" align="center" id="linkAdmissions" onMouseOver="MouseOverMenu('headerAdmissions','linkAdmissions');">Admissions</td>
+								<td class="level2 width90" align="center" id="linkAcademics" onMouseOver="MouseOverMenu('headerAcademics','linkAcademics');">Academics</td>
+								<td class="level2 width85" align="center" id="linkResearch" onMouseOver="MouseOverMenu('headerResearch','linkResearch');">Research</td>
+								<td class="level2 width70" align="center" id="linkPeople" onMouseOver="MouseOverMenu('headerPeople','linkPeople');">People</td>
+								<td class="level2 width125" align="center" id="linkNews" onMouseOver="MouseOverMenu('headerNews','linkNews');">News and Events</td>
+								<td class="level2 width145" align="center" id="linkResources" onMouseOver="MouseOverMenu('headerResources','linkResources');">Computing Resources</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+			
+			<div id="headerPeople" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgPeopleFaculty" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/people/faculty.html" class="level3">Faculty</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgPeopleStaff" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/people/staff.html" class="level3">Staff</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgPeopleStudents" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/people/students.html" class="level3">Students &amp; Alumni</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgPeopleCommittees" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/people/committee/" class="level3">Committees</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgPeopleContact" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/people/contact.html" class="level3">Contact</a> &nbsp; &nbsp; &nbsp;
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.rpi.edu/Contacts/directories.html" class="level3">Institute Directory</a>
+						</td>
+					</tr>
+				</table> 
+			</div>
+			<div id="headerResearch" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgResearchGroups" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/research/groups.html" class="level3">All Research Groups</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgResearchPhd" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/research/phdgrads.html" class="level3">PhD Theses</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgResearchTr" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/research/tr.html" class="level3">Technical Reports</a> &nbsp; &nbsp; &nbsp;
+						
+					<!--	<img name="imgResearchAnn" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/research/annualreport08.pdf" class="level3">Annual Report</a> &nbsp; &nbsp; &nbsp;	-->
+						
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.rpi.edu/dept/research/" class="level3">Institute Research</a> &nbsp; &nbsp; &nbsp;
+						</td>
+	 				</tr>
+				</table>
+			</div>
+			<div id="headerAcademics" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgAcademicsUndergrad" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/academics/undergrad.html" class="level3">Undergraduate Program</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgAcademicsGrad" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/academics/grad.html" class="level3">Graduate Program</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgAcademicsCourses" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/academics/courses.html" class="level3">Courses</a> &nbsp; &nbsp; &nbsp;
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.rpi.edu/academics/catalog/" class="level3">Institute Catalog</a> &nbsp; &nbsp; &nbsp;
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="headerAdmissions" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgAdmissionsUndergrad" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/admissions/undergrad.html" class="level3">Undergraduate</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgAdmissionsGrad" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/admissions/grad.html" class="level3" title="CS Graduate Admissions">Graduate</a> &nbsp; &nbsp; &nbsp;
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*"> Institute Admissions:
+							<a href="http://admissions.rpi.edu/" class="level3" title="Undergraduate Admissions">Undergraduate</a> |
+							<a href="http://gradadmissions.rpi.edu/" class="level3">Graduate</a> &nbsp; &nbsp; &nbsp;
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="headerNews" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgNewsColloquia" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/news/colloquia.html" class="level3">Colloquia</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgNewsSeminars" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/news/seminars.html" class="level3">Seminars</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgNewsNews" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/news/news.html" class="level3">News</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgNewsEvents" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/news/events.html" class="level3">Events</a> &nbsp; &nbsp; &nbsp;
+
+					<!--	<img name="imgNewsPositions" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/news/positions.html" class="level3">Open Positions</a> &nbsp; &nbsp; &nbsp;  -->
+
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://events.rpi.edu/" class="level3">Institute Events</a> &nbsp; &nbsp; &nbsp;
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="headerResources" class="header">
+				<table>
+					<tr>
+						<td class="level3">
+							<img name="imgResourcesOverview" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.cs.rpi.edu/lab/overview.html" class="level3">Overview</a> &nbsp; &nbsp; &nbsp;
+							<img name="imgResourcesLab" src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://twiki.cs.rpi.edu/twiki/bin/view/LabstaffWeb/" class="level3">Lab Manual</a> &nbsp; &nbsp; &nbsp;
+							<img src="/images/bullet_square.gif" width="6" height="6" alt="*">
+							<a href="http://www.rpi.edu/computing/" class="level3">Institute Computing</a> &nbsp; &nbsp; &nbsp;
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div id="headerNone" class="header">
+				<table>
+					<tr>
+						<td class="level3">No Menu Selected</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td class="spacer"></td>
+		<td style="width: 780px;">
+		
+<!-- TOP HTML END ========================================================== -->
+
+
+
+
+<p class="catname"><img src="/images/black_square.gif" width="8" height="8" alt="*" /> People</p>
+<h1>Faculty</h1>
+
+<h2>Professors:</h2>
+
+<p class="itemTitle">Adali, Sibel <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~sibel/">Homepage</a><br />
+Social networking; trust; multimedia database systems; information integration; 
+semantic web.</p>
+
+<p class="itemTitle">Anshelevich, Elliot <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --> <a href="http://www.cs.rpi.edu/~eanshel/">Homepage</a><br />
+Design and analysis of algorithms, especially for
+large decentralized networks. Strategic agents in networks and algorithmic
+game theory; approximation algorithms.
+</p>
+
+<p class="itemTitle">Berman, Francine <span class="itemHeadXtra">Ph.D.,
+  IEEE Fellow, ACM Fellow, Edward G. Hamilton Distinguished Professor</span></p>
+<p class="itemExtra"> 
+<a href="http://www.cs.rpi.edu/~bermaf/">Homepage</a><br />
+Big data and data cyberinfrastructure, preservation and access; e-science; grid, parallel, and high performance computing.
+</p>
+
+<p class="itemTitle">Carothers, Christopher <span class="itemHeadXtra">Ph.D., 
+ Director, Center for Computational Innovations, Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~chrisc/">Homepage</a><br />
+Massively parallel computing; parallel discrete-event simulation; systems simulations. </p>
+
+<p class="itemTitle">Cutler, Barbara <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~cutler/">Homepage</a><br />
+Computer graphics; visualization; geometry processing; algorithms; 
+design tools for architecture.
+</p>
+
+<!--
+<p class="itemTitle">Das, Sanmay <span class="itemHeadXtra">Ph.D., Assistant Professor</span></p>
+<p class="itemExtra">
+<a href="http://www.cs.rpi.edu/~sanmay/">Homepage</a><br />
+Machine learning; computational finance and economics; multi-agent systems;
+social networks; information retrieval and biomedical informatics.
+
+</p>
+-->
+<p class="itemTitle">Drineas, Petros <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~drinep/">Homepage</a><br />
+Design and analysis of algorithms, in particular randomized and approximation algorithms; linear algebra algorithms and their applications in data mining.</p>
+
+<p class="itemTitle">Goldberg, Mark <span class="itemHeadXtra">Ph.D., Professor
+and Associate Department Head</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~goldberg/">Homepage</a><br />
+Experimental design and analysis of algorithms; combinatorics and graph theory;
+applications to social networks. </p>
+
+<p class="itemTitle">Hardwick, Martin <span class="itemHeadXtra">Ph.D., 
+  Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | -->
+<!-- <a href="http://www.rdrc.rpi.edu/staff/hardwick.html">Homepage</a><br /> -->
+Data management systems for engineering and manufacturing applications.</p>
+
+<p class="itemTitle">Hendler, Jim <span class="itemHeadXtra">Ph.D., 
+ IEEE Fellow, Director of Rensselaer Institute for
+ Data Exploration and Applications, Tetherless World Constellation Chair</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~hendler/">Homepage</a><br />
+Artificial intelligence, semantic web, web science, agent-based 
+computing, open government data and high performance processing.
+</p>
+
+<p class="itemTitle">Ji, Heng <span class="itemHeadXtra">Ph.D.,
+Edward G. Hamilton Development Chair and Associate Professor</span></p>
+<p class="itemExtra">
+<a href="http://nlp.cs.rpi.edu/hengji.html">Homepage</a><br />
+Natural language processing, in particular cross-source information extraction and knowledge base population.
+</p>
+
+<p class="itemTitle">Krishnamoorthy, Mukkai <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~moorthy/">Homepage</a><br />
+Programming environments; design and analysis of combinatorial algorithms; 
+open source software development issues; performance issues in internet; 
+analysis of web documents; network visualization.
+</p>
+
+<!--
+<p class="itemTitle">Luk, Franklin T. <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<a href="http://www.cs.rpi.edu/~luk/">Homepage</a><br />
+Numerical linear algebra; geographic information science;
+ signal and image processing.</p>
+-->
+
+<p class="itemTitle">Magdon-Ismail, Malik <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~magdon/">Homepage</a><br />
+Theory, algorithms and applications of computational learning systems; computational finance; bioinformatics, social and communication network analysis.</p>
+
+<p class="itemTitle">McGuinness, Deborah L.<span class="itemHeadXtra">Ph.D., AAAS Fellow,
+ Tetherless World Constellation Chair </span></p>  
+<p class="itemExtra">
+Semantic web, explanation of intelligent systems, semantically-enabled
+informatics, semantic eScience.
+</p>
+
+<p class="itemTitle">Milanova, Ana <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~milanova/">Homepage</a><br />
+Software engineering, programming languages, compilers, program analysis, software testing, verification, reliable software systems.</p>
+
+
+<p class="itemTitle">Patterson, Stacy <span class="itemHeadXtra">Ph.D., 
+Clare Boothe Luce Assistant Professor</span></p>
+<p class="itemExtra">
+<a href="http://www.cs.rpi.edu/~pattes3/">Homepage</a><br />
+Distributed algorithms, in particular for coordination, estimation, and optimization;  cooperative control and dynamical systems; computer, sensor, and vehicle networks.
+</p>
+
+
+<p class="itemTitle">Spooner, David <span class="itemHeadXtra">Ph.D., 
+  Professor and Associate Dean of Science </span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~spoonerd/">Homepage</a><br />
+Information security, 
+computer science and information technology education.
+</p>
+
+<p class="itemTitle">Stewart, Charles <span class="itemHeadXtra">Ph.D., Professor and Department Head</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~stewart/">Homepage</a><br />
+Computer vision; biological and environmental applications.
+</p>
+
+<p class="itemTitle">Szymanski, Boleslaw <span class="itemHeadXtra">Ph.D., IEEE Fellow, Claire and Roland Schmitt
+Distinguished Professor, Director of the Center for 
+  Network Science and Engineering</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~szymansk/">Homepage</a><br />
+Social networks; computer and sensor networks; distributed
+and parallel computing; distributed simulation.
+
+</p>
+
+<p class="itemTitle">Trinkle, Jeff <span class="itemHeadXtra">Ph.D., 
+ IEEE Fellow, Professor and Faculty Dean of Residential Commons</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~trink/">Homepage</a><br />
+Robotics, manufacturing automation, physics engines, human-machine interaction.</p>
+
+<p class="itemTitle">Varela, Carlos <span class="itemHeadXtra">Ph.D., Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~cvarela">Homepage</a><br />
+Concurrent programming models and languages, adaptive scalable distributed computing, computational science and engineering.
+</p>
+
+<p class="itemTitle">Xia, Lirong <span class="itemHeadXtra">Ph.D., 
+ Assistant Professor </span></p>
+<p class="itemExtra"><a href="http://www.cs.rpi.edu/~xial/">Homepage</a><br />
+Economics and computation, artificial intelligence, multiagent
+systems, machine learning, game theory, mechanism design, social
+choice, algorithm design.
+</p>
+<p class="itemTitle">Yener, Bulent <span class="itemHeadXtra">Ph.D., 
+ Professor and Director of Data Science Research Center</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~yener/">Homepage</a><br />
+Computer networks; biological networks, bioinformatics, security, 
+combinatorial optimization.</p>
+
+<p class="itemTitle">Zaki, Mohammed <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~zaki/">Homepage</a><br />
+Data mining; machine learning; bioinformatics; complex graphs and networks;
+data science; high performance computing.
+</p>
+
+<!--
+<p class="itemTitle">Zhao, Wei <span class="itemHeadXtra">Ph.D., Professor
+ and Dean of Science</span></p>
+<p class="itemExtra"><a href=" http://www.rpi.edu/~zhaow3/">Homepage</a><br />
+ Distributed computing, real-time systems, computer
+      networks, and cyber space security and privacy.
+</p>
+-->
+
+
+<h2>Research and Affiliated Faculty:</h2> 
+
+<p class="itemTitle">Bennett, Kristin <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.rpi.edu/~bennek/">Homepage</a><br />
+Mathematical programming, optimization, machine learning, data mining,
+support vector machines, and applications of data mining to  bioinformatics,
+cheminformatics, finance, science and engineering.
+<em> (Joint appointment with Mathematical Sciences.)</em></p>
+
+<p class="itemTitle">Bringsjord, Selmer <span class="itemHeadXtra">Ph.D., Professor and Director of Rensselaer AI and Reasoning Laboratory</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.rpi.edu/~brings/">Homepage</a><br />
+Artificial intelligence, specifically including: logical, mathematical and 
+philosophical foundations of AI; AI and creativity; 
+AI and economics/finance/business;
+reasoning-based systems for homeland defense/intelligence analysis; 
+automated reasoning;
+automatic story generation and narrative control; intelligent tutoring 
+systems (for teaching logic and logic-based programming).
+<em>(Joint appointment with Cognitive Science)</em></p>
+
+<p class="itemTitle">Bystroff, Christopher <span class="itemHeadXtra">Ph.D., 
+Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.bioinfo.rpi.edu/bystrc/">Homepage</a><br />
+Bioinformatics; protein folding, engineering and design;
+molecular simulations.   
+<em>(Joint appointment with Biology.)</em></p>
+
+<p class="itemTitle">Eglash, Ron <span class="itemHeadXtra">Ph.D.,
+Professor</span></p>
+<p class="itemExtra"><a href="http://www.rpi.edu/~eglash/eglash.htm">Homepage</a><br />
+Computational models of cultural designs; Broadening Participation; K-12 STEM education; Self-organization. <em>(Joint Appointment with Science
+and Technology Studies.)</em></p>
+
+<p class="itemTitle">Fox, Peter <span class="itemHeadXtra">Ph.D., 
+Director of Information Technology and Web Science, 
+ Tetherless World Constellation Chair</span></p>
+<p class="itemExtra"><a href="http://www.cs.rpi.edu/~pfox">Homepage</a><br />  
+Semantic web, semantic e-science, data intensive science, virtual
+observatories, virtual organizations, data grids, high performance
+computing, collaborative science, sensor web, solar-terrestrial physics,
+solar variability. <em>(Joint appointment with 
+Earth and Environmental Science.)</em></p> 
+
+<p class="itemTitle">Franklin, Wm. Randolph <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.ecse.rpi.edu/Homepages/wrf/">Homepage</a><br />
+Computational cartography; computational geometry; computer graphics; geographic information science. <em>(Joint appointment with Electrical, Computer, and Systems Engineering.)</em></p>
+
+<p class="itemTitle">Gerhardt, Lester <span class="itemHeadXtra">Ph.D., 
+  Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.eng.rpi.edu/soe/directory_faculty_details.cfm?facultyID=gerhal">Homepage</a><br />
+Digital signal processing (voice and image); 
+communication systems; integrated inspection; sensing technologies, 
+personnel verification and identification using biometrics; Brain
+Computer Interfacing (BCI). 
+<em>(Joint appointment with Electrical, Computer, and Systems 
+Engineering.)</em></p>
+
+<p class="itemTitle">Gray, Wayne <span class="itemHeadXtra">Ph.D., Professor </span></p>
+<p class="itemExtra"><a href="http://www.rpi.edu/~grayw/">Homepage</a><br />
+Integrated cognitive systems, computational cognitive modeling, cognitive
+social science, cognitive engineering. Interested in basic and applied
+research that leads to understanding the interplay of natural interaction in
+routine human-human, human-machine, and human-information interactive
+behavior.
+<em>(Joint appointment with Cognitive Science.)</em>
+</p>
+
+<p class="itemTitle">Isaacson, David <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.rpi.edu/~isaacd/">Homepage</a><br />
+Mathematical and computational problems arising in the diagnosis and treatment of heart disease and breast cancer.<em> (Joint appointment with Mathematical Sciences.)</em></p>
+
+<p class="itemTitle">McLaughlin, Harry <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://eaton.math.rpi.edu/faculty/Mclaughlin/harry.html">Homepage</a><br />
+Applied geometry; computational geometry, complex systems. <em>(Joint appointment with Mathematical Sciences.)</em></p>
+
+<p class="itemTitle">Newberg, Lee <span class="itemHeadXtra">Ph.D., Research Associate Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~leen/">Homepage</a><br />
+Algorithmic, statistical, and combinatorical approaches to 
+molecular biology;  currently including multiple sequence
+alignment, ancestral reconstruction of sequences, estimation of
+statistical significance, and computation of credibility / Bayesian
+confidence limits.(Not accepting new graduate students.)
+ 
+</p>
+
+<p class="itemTitle">Nirenburg, Sergei <span class="itemHeadXtra">Ph.D., 
+Professor </span></p>
+<p class="itemExtra"><a href="http://www.cogsci.rpi.edu/pl/faculty-staff-cogsci/nirenburg">Homepage</a><br />
+Computational models of human cognitive abilities, computational theory of the mind, modeling societies of intelligent agents, intelligent agent systems and environments, integration of physiological and cognitive modeling, intelligent agents for clinical medicine, intelligent advisors and instructors, computational linguistics: ontological semantics, pragmatics, discourse, dialog, acquisition, representation and maintenance of knowledge about the world and about language, computational descriptive linguistics, linguistic engineering for lesser-studied languages.
+<em>(Joint appointment with Cognitive Science.)</em>
+</p>
+
+<p class="itemTitle">Shephard, Mark <span class="itemHeadXtra">Ph.D., 
+Director of Scientific Computation Research Center, Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="#">Homepage</a><br />
+Scientific computation; mesh generation;adaptive and parallel finite elements
+and multiscale methods. <em>(Joint appointment with Mechanical, Aerospace, and 
+Nuclear Engineering.)</em></p>
+
+<p class="itemTitle">Sun, Ron <span class="itemHeadXtra">Ph.D., IEEE Fellow, 
+Professor </span></p>
+<p class="itemExtra"><a href="http://sites.google.com/site/drronsun">Homepage</a><br />
+Computational cognitive modeling, cognitive social sciences, cognitive social simulation, neural networks,  multi-agent systems, machine learning. 
+<em>(Joint appointment with Cognitive Science.)</em>
+</p>
+
+<p class="itemTitle">Wozny, Michael <span class="itemHeadXtra">Ph.D., Professor</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.eng.rpi.edu/soe/research_faculty_details.cfm?facultyID=woznym">Homepage</a><br />
+Computer graphics; computer-aided geometric design; information systems in engineering design and manufacturing. <em>(Joint appointment with Electrical, Computer and Systems Engineering.)</em></p>
+
+
+<h2>Instructors:</h2> 
+
+
+<p class="itemTitle">Goldschmidt, David E. <span class="itemHeadXtra">Ph.D., Executive Officer</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | -->
+<a href="http://www.cs.rpi.edu/~goldsd">Homepage</a><br />
+Operating systems; network programming; programming languages;
+software engineering.
+</p>
+
+<p class="itemTitle">Kotfila, David A. <span class="itemHeadXtra">M. Div., Director of Cisco Networking Academy</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | -->
+<a href="http://www.cs.rpi.edu/~kotfid">Homepage</a><br />
+Advanced routing and switching protocols;  network security; CCIE.</p>
+
+<p class="itemTitle">Liu, Ingrid Y. <span class="itemHeadXtra">Ph.D., Lecturer</span></p>
+<p class="itemExtra">
+Software engineering; image processing; educational online testing.
+</p>
+
+
+<h2>Emeritus Professors:</h2> 
+
+<p class="itemTitle">Flaherty, Joseph <span class="itemHeadXtra">Ph.D., Amos Eaton Professor Emeritus</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~flaherje/">Homepage</a><br />
+Scientific computation; adaptive and parallel solution techniques; numerical analysis.</p>
+
+<p class="itemTitle">Glinert, Ephraim <span class="itemHeadXtra">Ph.D.</span></p>
+<p class="itemExtra"><!-- <a href="#">Bio Coming Soon</a> | --><a href="http://www.cs.rpi.edu/~glinert/">Homepage</a><br />
+Assistive technology, universal access; human-computer interaction, multimedia information visualization.</p>
+
+<!--
+<p class="itemTitle">McNaughton, Robert <span class="itemHeadXtra">Ph.D.</span></p>
+<p class="itemExtra"> <a href="#">Bio Coming Soon</a> |<a href="http://www.cs.rpi.edu/people/mcnaughton.html">Homepage</a><br />
+Automata theory; formal languages; combinatorics on words.</p>
+-->
+
+<p class="itemTitle">Musser, David <span class="itemHeadXtra">Ph.D.</span></p>
+<p class="itemExtra"><a href="http://www.cs.rpi.edu/~musser/">Homepage</a><br />
+Programming methodology; generic software libraries; formal methods of specification and verification. </p>
+
+<p class="itemTitle">Rogers, Edwin H. <span class="itemHeadXtra">Ph.D.</span></p> 
+<p class="itemExtra"><a href="http://www.cs.rpi.edu/~rogerseh">Homepage</a><br />
+Collaborative computing; group operating systems; 
+modeling paradigms.</p>
+
+
+
+<!-- FOOT HTML START ======================================================= -->
+
+				<br>
+			
+			</td>
+  			<td class="spacer"></td>
+		</tr>
+		<tr>
+			<td colspan="3">     
+				<div style="margin-left: auto; margin-right: auto; text-align: center;">
+					<br>
+					<img src="/images/blue_rule.gif" width="780" height="2" alt="---">
+					<br>
+					<table style="width: 760px; position: relative; left: 20px;">
+						<tr>
+							<td style="text-align: left; vertical-align: middle">
+								<p class="footer">General inquiries: <a href="mailto:info@cs.rpi.edu">info@cs.rpi.edu</a><br>
+								   Technical issues: <a href="mailto:www@cs.rpi.edu">www@cs.rpi.edu</a></p></td>
+							<td style="text-align: center; vertical-align: middle">
+								<p class="footer"><img src="/images/rpi_bug.gif" alt="RPI Seal" style="width: 25px; height: 25px; vertical-align: middle;"> 
+								<a href="http://www.rpi.edu/" class="footer">RPI Home</a> | <a href="http://www.rpi.edu/rpinfo/" class="footer">RPInfo</a></p></td>
+							<td style="text-align: right; vertical-align: middle">
+								<p class="footer">110 8th Street<br>
+								   Troy, NY 12180-3590<br>
+								   (518) 276-8326</p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</td>
+		</tr>
+	
+</table></div>
+
+<!-- FOOT HTML END ========================================================= -->
+
+
+<script language="javascript">
+	setDefaultMenu( 'People' , 'Faculty' );
+</script> 
+
+
+</body>
+</html>
