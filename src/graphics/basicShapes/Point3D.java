@@ -1,5 +1,7 @@
 package graphics.basicShapes;
 
+import java.awt.Color;
+
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.Math3D;
 
@@ -115,9 +117,9 @@ public class Point3D {
 		return Math3D.getPointInNewCoordinates(camera.getTransform(), this);
 	}
 
-	public void draw(Camera c) {
+	public void draw(Camera c, Color color) {
 		Point3D cameraPoint = getCameraPoint(c);
 		Point3D drawPoint = cameraPoint.getDirectDrawPoint(c);
-		c.paintPoint((int) drawPoint.x, (int) drawPoint.y, cameraPoint.z);
+		c.drawPoint((int) drawPoint.x, (int) drawPoint.y, cameraPoint.z, color);
 	}
 }

@@ -16,7 +16,7 @@ public class World3D {
 
 	private boolean inFrame = false;
 
-	public void paint(Graphics g, Camera c) {
+	public void draw(Graphics g, Camera c) {
 		inFrame = true;
 		c.resetScreen();
 		for (Model model : models) {

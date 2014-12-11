@@ -9,8 +9,24 @@ public class MathHelper {
 		double pow = Math.pow(10, decimalPoints);
 		return (int) (pow * x) / pow;
 	}
-	
+
 	public static void main(String[] args) {
-		System.out.println(round(1.23456,4));
+		System.out.println(round(1.23456, 4));
+	}
+
+	public static double max(double... values) {
+		double min = Double.MAX_VALUE;
+		for (double value : values) {
+			min = Math.min(min, value);
+		}
+		return min;
+	}
+
+	public static double min(double... values) {
+		double min = Double.MAX_VALUE;
+		for (double value : values) {
+			min = Math.min(min, value);
+		}
+		return min;
 	}
 }

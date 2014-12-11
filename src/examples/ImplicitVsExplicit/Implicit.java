@@ -28,7 +28,7 @@ public class Implicit {
 		String out = "Timmy";
 		int inputBits = 8 * in.length();
 		int outputBits = 8 * out.length();
-		FFNN n = new FFNN(new int[] { inputBits, 10, 10, outputBits });
+		FFNN n = new FFNN(new int[] { inputBits, 10, outputBits });
 		n.setGammaTruncation(0.1);
 		n.setVerbosity(0);
 		n.setDisplayVisually(true, 800, 500, 0);

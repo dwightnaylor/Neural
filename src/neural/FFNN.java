@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 public class FFNN extends NeuralNetwork<double[], double[]> {
 
 	// fields that are actually important to the network's functioning
-	Neuron[][] neurons;
+	public Neuron[][] neurons;
 
 	/**
 	 * @param sizes
@@ -229,27 +229,27 @@ public class FFNN extends NeuralNetwork<double[], double[]> {
 		FFNNDisplay visual = null;
 		if (isDisplayingVisually()) {
 			visual = new FFNNDisplay(this, getDisplayWidth(), getDisplayHeight(), getDisplayDelay());
-		}
-		JFrame graphFrame = new JFrame();
-		graphFrame.setLocation(visual.getX() + visual.getWidth(), 0);
-		graphFrame.setSize(500, 500);
-		graphFrame.setContentPane(new Container() {
-			private static final long serialVersionUID = 1L;
+			graphFrame = new JFrame();
+			graphFrame.setLocation(visual.getX() + visual.getWidth(), 0);
+			graphFrame.setSize(500, 500);
+			graphFrame.setContentPane(new Container() {
+				private static final long serialVersionUID = 1L;
 
-			@Override
-			public void paint(Graphics g) {
-				double rm = 0;
-				for (int i = 0; i < RMSES.size(); i++) {
-					rm = Math.max(rm, RMSES.get(i));
+				@Override
+				public void paint(Graphics g) {
+					double rm = 0;
+					for (int i = 0; i < RMSES.size(); i++) {
+						rm = Math.max(rm, RMSES.get(i));
+					}
+					g.setColor(Color.red);
+					for (int i = 0; i < RMSES.size(); i++) {
+						int x = (int) ((double) i / RMSES.size() * getWidth());
+						g.drawLine(x, getHeight() - 1, x, getHeight() - 1 - (int) (RMSES.get(i) / rm * getHeight()));
+					}
 				}
-				g.setColor(Color.red);
-				for (int i = 0; i < RMSES.size(); i++) {
-					int x = (int) ((double) i / RMSES.size() * getWidth());
-					g.drawLine(x, getHeight() - 1, x, getHeight() - 1 - (int) (RMSES.get(i) / rm * getHeight()));
-				}
-			}
-		});
-		graphFrame.setVisible(true);
+			});
+			graphFrame.setVisible(true);
+		}
 		while (!done) {
 			if (isDisplayingVisually()) {
 				long st = System.currentTimeMillis();
@@ -297,9 +297,9 @@ public class FFNN extends NeuralNetwork<double[], double[]> {
 				helper.doPostIterationAction(iteration);
 			}
 			iteration++;
-			graphFrame.repaint();
 			if (isDisplayingVisually()) {
-				visual.setVisible(true);
+				graphFrame.repaint();
+				// visual.setVisible(true);
 			}
 
 			if (done) {
@@ -315,7 +315,9 @@ public class FFNN extends NeuralNetwork<double[], double[]> {
 					}
 				}
 				if (isDisplayingVisually()) {
-					visual.continueRepainting();
+					while (true) {
+						visual.repaint();
+					}
 				}
 				break;
 			}
@@ -324,6 +326,7 @@ public class FFNN extends NeuralNetwork<double[], double[]> {
 	}
 
 	ArrayList<Double> RMSES = new ArrayList<Double>();
+	private JFrame graphFrame;
 
 	public char getResultsAsChar() {
 		char ret = 0;

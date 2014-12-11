@@ -2,8 +2,8 @@ package neural;
 
 public class Neuron {
 
-	double[] weights;
-	double biasWeight;
+	public double[] weights;
+	public double biasWeight;
 	double gamma;
 	double error;
 

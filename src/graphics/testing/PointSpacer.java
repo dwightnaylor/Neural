@@ -32,7 +32,8 @@ public class PointSpacer extends WorldFrame {
 	private static boolean started = false;
 
 	public static void main(String[] args) {
-		PointSpacer frame = new PointSpacer(1000, 800, 20);
+		PointSpacer frame = new PointSpacer(400, 400, 20);
+		frame.drawMovementInstructions = false;
 		frame.setVisible(true);
 		while (true) {
 			frame.repaint();
@@ -113,18 +114,18 @@ public class PointSpacer extends WorldFrame {
 		if (started) {
 			// if (Math.random() < 0.9) {
 			// if (ties.size() > 0) {
-			// Iterator<Point> iterator = ties.iterator();
+			// Iterator<UnorderedPair<Model>> iterator = ties.iterator();
 			// int j = (int) (Math.random() * (ties.size() - 1));
 			// for (int i = 0; i < j; i++) {
 			// iterator.next();
 			// }
-			// Point next = iterator.next();
-			// untie(next.x, next.y);
+			// UnorderedPair<Model> next = iterator.next();
+			// untie(points.indexOf(next.first()),
+			// points.indexOf(next.second()));
 			// }
 			// }
-			// tie((int) (Math.random() * getWorld().models.size()), (int)
-			// (Math.random() *
-			// getWorld().models.size()));
+			// tie((int) (Math.random() * points.size()), (int) (Math.random() *
+			// points.size()));
 
 			for (Model curModel : points) {
 				for (Model otherModel : points) {
@@ -175,30 +176,31 @@ public class PointSpacer extends WorldFrame {
 	private void makeThings() {
 		moveSpeed = 30;
 
+		// makePoints(100);
 		// Platonic solids
 		// tieRandomly(4, 1);
-		// makeCubes(2, 1, false);
+		 makeCubes(9, 1, false);
 		// makeOctahedron();
 		// makeMultipleDodecahedra(1, 0);
 		// makeIcosahedron();
 		// Basic Geometric arrangements
-		// tieLine(50);
-		// tieRing(100);
-		// makeSquareGrid(20);
-		// makeCubes(8, 1, false);
+//		 tieLine(64);
+		// tieRing(500);
+//		 makeSquareGrid(8);
+//		 makeCubes(10, 1, false);
 
 		// makeTwistExample();
 
 		// Randomly-generated
 		// tieLines(100, 2);
-		// tieRandomly(200, 0.0075);
+		// tieRandomly(300, 0.02);
 		// tieRandomly(100, 0.01);
 		// tieRandomly(400, 0.003);
 
 		// Clusters
 		// makeCubes(4, 4, true);
 		// makeMultipleDodecahedra(20, 1);
-		// tieRandomClusters(400, 20, 0.2, true);
+		// tieRandomClusters(400, 20, 0.1, true);
 		// tieRandomClusters(300, 2, 0.02, true);
 
 		// makeWikiCrawler("http://en.wikipedia.org/wiki/Pollarding");
@@ -206,9 +208,9 @@ public class PointSpacer extends WorldFrame {
 		// Real data
 		// doPairwiseTying("rpidata/BioDepartment");
 		// doPairwiseTying("rpidata/PhysicsDepartment");
-		// doPairwiseTying("rpidata/CSDepartment");
-		// doPairwiseTying("caltechdata/CSDepartment");
-		doPairwiseTying("allSchoolsData/csDepartments");
+//		doPairwiseTying("rpidata/CSDepartment");
+//		 doPairwiseTying("caltechdata/CSDepartment");
+//		 doPairwiseTying("allSchoolsData/csDepartments");
 		// doOrderedTying("text/pledgeOfAllegiance");
 		// doOrderedTying("text/gettysburgAddress");
 	}
@@ -536,7 +538,7 @@ public class PointSpacer extends WorldFrame {
 			return;
 		}
 		ties.add(p1);
-		LineModel model = new LineModel(getWorld(), points.get(i), points.get(j));
+		LineModel model = new LineModel(getWorld(), points.get(i), points.get(j), 1);
 		tieModels.put(p1, model);
 	}
 

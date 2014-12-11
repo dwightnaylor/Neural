@@ -6,18 +6,25 @@ import graphics.basicShapes.Ray3D;
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.World3D;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Model implements Comparable<Model> {
 
 	public ArrayList<Polygon3D> polygons;
 	private Ray3D transform;
-	World3D w;
+	private World3D world;
 
-	public Model(World3D w) {
+	private Color color;
+
+	public Model() {
 		polygons = new ArrayList<Polygon3D>();
-		this.w = w;
-		w.models.add(this);
+		transform = Ray3D.DEFAULT_RAY;
+	}
+
+	public Model(World3D world) {
+		polygons = new ArrayList<Polygon3D>();
+		this.setWorld(world);
 		transform = Ray3D.DEFAULT_RAY;
 	}
 
@@ -75,15 +82,34 @@ public class Model implements Comparable<Model> {
 
 	// **********Graphics**********
 
-	public void draw(Camera c) {
+	public void draw(Camera camera) {
 		for (int i = 0; i < polygons.size(); i++) {
-			polygons.get(i).transform(transform).draw(c);
+			polygons.get(i).transform(transform).draw(camera, color);
 		}
 	}
 
 	@Override
-	public int compareTo(Model o) {
-		return ((Integer) hashCode()).compareTo(o.hashCode());
+	public int compareTo(Model model) {
+		return ((Integer) hashCode()).compareTo(model.hashCode());
+	}
+
+	public World3D getWorld() {
+		return world;
+	}
+
+	public void setWorld(World3D world) {
+		this.world = world;
+		if (world != null) {
+			world.models.add(this);
+		}
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
+		this.color = color;
 	}
 
 }

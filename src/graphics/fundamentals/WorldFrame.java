@@ -1,7 +1,7 @@
 package graphics.fundamentals;
 
 import graphics.basicShapes.Ray3D;
-import graphics.basicmodels.Rectangle3D;
+import graphics.basicmodels.RectangleModel;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -21,13 +21,14 @@ import javax.swing.JRootPane;
 import javax.swing.WindowConstants;
 
 public class WorldFrame extends JFrame implements MouseMotionListener, MouseListener, KeyListener, ComponentListener, MouseWheelListener {
+	protected boolean drawMovementInstructions = true;
 	private World3D world;
 	private Camera camera;
 	private Point lastMousePress;
 	private Point lastMouseDrag;
 	public boolean[] keyPressBuffer = new boolean[1024];
 	private long minFrameTime = 20;
-	protected int moveSpeed = 1;
+	protected int moveSpeed = 10;
 
 	public WorldFrame(int width, int height) {
 		setWorld(new World3D());
@@ -40,11 +41,13 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 
 			public void paint(Graphics g) {
 				long frameStartTime = System.currentTimeMillis();
-				getWorld().paint(g, getCamera());
-				g.setColor(Color.black);
-				g.drawString("WASD keys move forward,left,back, and right. Shift moves down and Spacebar moves up. Click and drag to look around.", 3, 12);
-				g.drawString("Move speed is currently " + getMoveSpeed() + ". Scroll to change move speed. (Up is faster, down is slower)", 3, 27);
-				g.drawString("Frametime is about " + frameTime , 3, 42);
+				getWorld().draw(g, getCamera());
+				if (drawMovementInstructions) {
+					g.setColor(Color.black);
+					g.drawString("WASD keys move forward,left,back, and right. Shift moves down and Spacebar moves up. Click and drag to look around.", 3, 12);
+					g.drawString("Move speed is currently " + getMoveSpeed() + ". Scroll to change move speed. (Up is faster, down is slower)", 3, 27);
+					g.drawString("Frametime is about " + frameTime, 3, 42);
+				}
 				processKeyPresses();
 				doPainting(g);
 				frameTime = System.currentTimeMillis() - frameStartTime;
@@ -206,7 +209,7 @@ public class WorldFrame extends JFrame implements MouseMotionListener, MouseList
 		WorldFrame frame = new WorldFrame(400, 400);
 		// Rectangle3D r = new Rectangle3D(frame.getWorld(), 0, 0, 400, 100);
 		// r.rotate(30, 0);
-		new Rectangle3D(frame.getWorld(), 15,  15, 100 , 20);
+		new RectangleModel(frame.getWorld(), 15, 15, 100, 20);
 		frame.setVisible(true);
 		while (true) {
 			frame.repaint();

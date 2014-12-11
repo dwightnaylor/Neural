@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import graphics.basicShapes.Point3D;
 import graphics.basicShapes.Ray3D;
 import graphics.basicmodels.RayModel;
+import helpers.MathHelper;
 
 public class Camera extends RayModel {
 
@@ -33,76 +34,45 @@ public class Camera extends RayModel {
 		}
 	}
 
-	public void paintPoint(int x, int y, double z) {
+	public void drawPoint(int x, int y, double z, Color color) {
 		if (x < 0 || y < 0 || x >= getFieldWidth() || y >= getFieldHeight() || zraster[x][y] < z) {
 			return;
 		}
 		zraster[x][y] = z;
 
-		Color colorToUse = screenGraphics.getColor();
-		double scale = 1 / (z * zmult * 0.05 + 1);
-		double r = 200 - (colorToUse.getRed() + (200 - colorToUse.getRed()) * scale);
-		double g = 200 - (colorToUse.getGreen() + (200 - colorToUse.getGreen()) * scale);
-		double b = 200 - (colorToUse.getBlue() + (200 - colorToUse.getBlue()) * scale);
-		Color finalColor = new Color((int) r, (int) g, (int) b);
+		Color colorToUse = color == null ? Color.black : color;
+		// double scale = 1 / (z * zmult * 0.05 + 1);
+		// double r = 200 - (colorToUse.getRed() + (200 - colorToUse.getRed()) *
+		// scale);
+		// double g = 200 - (colorToUse.getGreen() + (200 -
+		// colorToUse.getGreen()) * scale);
+		// double b = 200 - (colorToUse.getBlue() + (200 - colorToUse.getBlue())
+		// * scale);
+		// Color finalColor = new Color((int) r, (int) g, (int) b);
+		Color finalColor = colorToUse;
 		screen.setRGB(x, y, finalColor.getRGB());
 	}
 
-	public void fillTriangleForCameraPoints(Point3D p1c, Point3D p2c, Point3D p3c) {
-
-		Point3D p1d = p1c.getDirectDrawPoint(this);
-		Point3D p2d = p2c.getDirectDrawPoint(this);
-		Point3D p3d = p3c.getDirectDrawPoint(this);
-
-		paintTriangle(p1d, p2d, p3d);
+	public void fillTriangleForCameraPoints(Point3D p1c, Point3D p2c, Point3D p3c, Color color) {
+		fillTriangle(p1c.getDirectDrawPoint(this), p2c.getDirectDrawPoint(this), p3c.getDirectDrawPoint(this), color);
 	}
 
-	public void paintTriangle(Point3D p1c, Point3D p2c, Point3D p3c) {
-		double minX = p1c.x;
-		double minY = p1c.y;
-		double maxX = p1c.x;
-		double maxY = p1c.y;
-		if (p2c.x < minX)
-			minX = p2c.x;
-		if (p2c.y < minY)
-			minY = p2c.y;
-		if (p2c.x > maxX)
-			maxX = p2c.x;
-		if (p2c.y > maxY)
-			maxY = p2c.y;
-		if (p3c.x < minX)
-			minX = p3c.x;
-		if (p3c.y < minY)
-			minY = p3c.y;
-		if (p3c.x > maxX)
-			maxX = p3c.x;
-		if (p3c.y > maxY)
-			maxY = p3c.y; // Best code ever
-
-		if (maxX < 0) {
-			maxX = 0;
-		}
-		if (maxY < 0) {
-			maxY = 0;
-		}
-		if (minX >= getFieldWidth()) {
-			minX = getFieldWidth() - 1;
-		}
-		if (minY >= getFieldHeight()) {
-			minY = getFieldHeight() - 1;
-		}
+	public void fillTriangle(Point3D p1c, Point3D p2c, Point3D p3c, Color color) {
+		double minX = MathHelper.min(p1c.x, p2c.x, p3c.x, getFieldWidth());
+		double minY = MathHelper.min(p1c.y, p2c.y, p3c.y, getFieldHeight());
+		double maxX = MathHelper.max(p1c.x, p2c.x, p3c.x, 0);
+		double maxY = MathHelper.max(p1c.y, p2c.y, p3c.y, 0);
 
 		for (int i = (int) minX - 1; i < maxX + 1; i++) {
 			for (int j = (int) minY - 1; j < maxY + 1; j++) {
 				if (!Math3D.pointIsInTriangle(i, j, p1c, p2c, p3c))
 					continue;
-				paintPoint(i, j, Math3D.zVal(i, j, p1c, p2c, p3c));
-
+				drawPoint(i, j, Math3D.zVal(i, j, p1c, p2c, p3c), color);
 			}
 		}
 	}
 
-	public void paintLineForCameraPoints(Point3D p1c, Point3D p2c) {
+	public void drawLineForCameraPoints(Point3D p1c, Point3D p2c, double width, Color color) {
 		if (p1c.z > 0 || p2c.z > 0) {
 			if (p2c.z <= 0) {
 				p2c = p1c.getPointPartwayTo(p2c, (p1c.z - 0.01) / (p2c.z - p1c.z));
@@ -112,11 +82,11 @@ public class Camera extends RayModel {
 
 			Point3D p1d = p1c.getDirectDrawPoint(this);
 			Point3D p2d = p2c.getDirectDrawPoint(this);
-			paintLine((int) p1d.x, (int) p1d.y, p1c.z, (int) p2d.x, (int) p2d.y, p2c.z, 1);
+			drawLine((int) p1d.x, (int) p1d.y, p1c.z, (int) p2d.x, (int) p2d.y, p2c.z, width, color);
 		}
 	}
 
-	public void paintLine(int x1, int y1, double z1, int x2, int y2, double z2, double width) {
+	public void drawLine(int x1, int y1, double z1, int x2, int y2, double z2, double width, Color color) {
 		if (x1 < 0 && x2 < 0 || x1 >= getFieldWidth() && x2 >= getFieldWidth() || y1 < 0 && y2 < 0 || y1 >= getFieldHeight() && y2 >= getFieldHeight()) {
 			return;
 		}
@@ -196,16 +166,16 @@ public class Camera extends RayModel {
 			}
 			if (xm) {
 				for (int j = 1; j <= d; j++) {
-					paintPoint(x1, y1 - j, z1);
-					paintPoint(x1, y1 + j, z1);
+					drawPoint(x1, y1 - j, z1, color);
+					drawPoint(x1, y1 + j, z1, color);
 				}
 			} else {
 				for (int j = 1; j <= d; j++) {
-					paintPoint(x1 - j, y1, z1);
-					paintPoint(x1 + j, y1, z1);
+					drawPoint(x1 - j, y1, z1, color);
+					drawPoint(x1 + j, y1, z1, color);
 				}
 			}
-			paintPoint(x1, y1, z1);
+			drawPoint(x1, y1, z1, color);
 			z1 += dz;
 			numerator += shortest;
 			if (numerator >= longest) {

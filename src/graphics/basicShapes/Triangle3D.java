@@ -3,6 +3,7 @@ package graphics.basicShapes;
 import graphics.fundamentals.Camera;
 import graphics.fundamentals.Math3D;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -45,9 +46,9 @@ public class Triangle3D {
 
 	// **********Graphics**********
 
-	public void draw(Camera camera) {
+	public void draw(Camera camera, Color color) {
 		if (points.size() == 3) {
-			fill(camera);
+			fill(camera, color);
 			return;
 		}
 
@@ -56,17 +57,17 @@ public class Triangle3D {
 			cameraPoints[i] = points.get(i).getCameraPoint(camera);
 		}
 		for (int i = 0; i < points.size(); i++) {
-			camera.paintLineForCameraPoints(cameraPoints[(i) % points.size()], cameraPoints[(i + 1) % points.size()]);
+			camera.drawLineForCameraPoints(cameraPoints[(i) % points.size()], cameraPoints[(i + 1) % points.size()], 1, color);
 		}
 	}
 
-	public void fill(Camera c) {
+	public void fill(Camera c, Color color) {
 		if (shouldFill(c)) {
 			Point3D[] cPoints = new Point3D[points.size()];
 			for (int i = 0; i < cPoints.length; i++) {
 				cPoints[i] = points.get(i).getCameraPoint(c);
 			}
-			c.fillTriangleForCameraPoints(cPoints[0], cPoints[1], cPoints[2]);
+			c.fillTriangleForCameraPoints(cPoints[0], cPoints[1], cPoints[2], color);
 		}
 	}
 
